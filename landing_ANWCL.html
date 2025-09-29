@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANWCL-YTU Laboratory</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#members">Lab Members</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#news">Recent News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section with Slideshow -->
+    <section id="home">
+        <div class="slideshow">
+            <div class="slide active"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>ANWCL</h1>
+            <p>AI and Next-generation Wireless Communications Laboratory</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="content-container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content fade-in">
+                <p>Welcome to the Advanced Networking and Wireless Communications Laboratory at YTU. Our research focuses on cutting-edge technologies in wireless communications, network optimization, and next-generation communication systems. We strive to push the boundaries of what's possible in the field of telecommunications.</p>
+                <p style="margin-top: 1.5rem;">Our interdisciplinary team combines expertise in signal processing, machine learning, and network architecture to solve complex challenges in modern communication systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director's Message Section -->
+    <section id="director">
+        <div class="content-container">
+            <h2 class="section-title">Director's Message</h2>
+            <div class="director-container fade-in">
+                <div class="director-photo">
+                    <img src="photos/director.jpeg" alt="Director">
+                    <div class="director-placeholder">Dr</div>
+                </div>
+                <div class="director-message">
+                    <h3 class="director-name">Dr. Jane Doe</h3>
+                    <p class="director-title">Laboratory Director & Professor</p>
+                    <p class="director-text">
+                        Welcome to ANWCL-YTU. It is my great pleasure to lead this exceptional team of researchers dedicated to advancing the frontiers of wireless communications and networking technologies. Our laboratory represents a convergence of innovative minds working collaboratively to address the most pressing challenges in modern telecommunications.
+                    </p>
+                    <p class="director-text" style="margin-top: 1rem;">
+                        We are committed to fostering an environment of academic excellence, creative exploration, and impactful research that bridges theory and practical application. I invite you to explore our work and join us in shaping the future of communications technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Members Section -->
+    <section id="members">
+        <div class="content-container">
+            <h2 class="section-title">Lab Members</h2>
+            <div class="members-grid">
+                <div class="member-card fade-in">
+                    <div class="member-avatar">JD</div>
+                    <h3 class="member-name">Dr. Jane Doe</h3>
+                    <p class="member-role">Principal Investigator</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in">
+                    <div class="member-avatar">JS</div>
+                    <h3 class="member-name">John Smith</h3>
+                    <p class="member-role">PhD Candidate</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in">
+                    <div class="member-avatar">AK</div>
+                    <h3 class="member-name">Alice Kim</h3>
+                    <p class="member-role">Research Associate</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in">
+                    <div class="member-avatar">MP</div>
+                    <h3 class="member-name">Michael Park</h3>
+                    <p class="member-role">Graduate Student</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <!-- Hidden members initially -->
+                <div class="member-card fade-in hidden">
+                    <div class="member-avatar">SL</div>
+                    <h3 class="member-name">Sarah Lee</h3>
+                    <p class="member-role">PhD Candidate</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in hidden">
+                    <div class="member-avatar">RB</div>
+                    <h3 class="member-name">Robert Brown</h3>
+                    <p class="member-role">Postdoctoral Researcher</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in hidden">
+                    <div class="member-avatar">EC</div>
+                    <h3 class="member-name">Emily Chen</h3>
+                    <p class="member-role">Research Assistant</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+                <div class="member-card fade-in hidden">
+                    <div class="member-avatar">DW</div>
+                    <h3 class="member-name">David Wilson</h3>
+                    <p class="member-role">Graduate Student</p>
+                    <a href="#" class="member-btn">View Profile</a>
+                </div>
+            </div>
+            <button class="show-more-btn" id="showMoreBtn">Show More Members</button>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="content-container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-container">
+                <!-- Ongoing Projects -->
+                <div class="projects-subsection">
+                    <h3 class="subsection-title">Ongoing Projects</h3>
+                    <div class="projects-list">
+                        <div class="project-card fade-in">
+                            <h3 class="project-title">5G Network Optimization</h3>
+                            <p class="project-description">Developing novel algorithms for optimizing 5G network performance in dense urban environments using machine learning techniques.</p>
+                        </div>
+                        <div class="project-card fade-in">
+                            <h3 class="project-title">IoT Security Framework</h3>
+                            <p class="project-description">Creating a comprehensive security framework for Internet of Things devices with focus on lightweight encryption and authentication.</p>
+                        </div>
+                        <div class="project-card fade-in hidden">
+                            <h3 class="project-title">Edge Computing Solutions</h3>
+                            <p class="project-description">Investigating edge computing architectures to reduce latency and improve performance in real-time applications.</p>
+                        </div>
+                        <div class="project-card fade-in hidden">
+                            <h3 class="project-title">AI-Driven Network Management</h3>
+                            <p class="project-description">Implementing artificial intelligence techniques for autonomous network management and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finished Projects -->
+                <div class="projects-subsection">
+                    <h3 class="subsection-title">Finished Projects</h3>
+                    <div class="projects-list">
+                        <div class="project-card fade-in">
+                            <h3 class="project-title">Quantum Communications</h3>
+                            <p class="project-description">Explored quantum key distribution protocols for ultra-secure communication channels in next-generation networks.</p>
+                        </div>
+                        <div class="project-card fade-in">
+                            <h3 class="project-title">Smart Grid Communication</h3>
+                            <p class="project-description">Developed reliable communication protocols for smart grid infrastructure enabling efficient energy distribution.</p>
+                        </div>
+                        <div class="project-card fade-in hidden">
+                            <h3 class="project-title">Vehicular Network Protocol</h3>
+                            <p class="project-description">Designed and tested V2V communication protocols for enhanced road safety and traffic management.</p>
+                        </div>
+                        <div class="project-card fade-in hidden">
+                            <h3 class="project-title">Wireless Sensor Networks</h3>
+                            <p class="project-description">Implemented energy-efficient protocols for large-scale wireless sensor network deployments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="show-more-btn" id="showMoreProjectsBtn">Show More Projects</button>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="content-container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publication-list">
+                <div class="publication-item fade-in">
+                    <div class="publication-title">Machine Learning Approaches for Network Traffic Prediction in 5G Systems</div>
+                    <div class="publication-authors">J. Doe, J. Smith, A. Kim</div>
+                    <div class="publication-journal">IEEE Transactions on Wireless Communications, 2024</div>
+                </div>
+                <div class="publication-item fade-in">
+                    <div class="publication-title">Energy-Efficient Protocol Design for IoT Networks</div>
+                    <div class="publication-authors">A. Kim, M. Park, J. Doe</div>
+                    <div class="publication-journal">ACM Journal on Mobile Networks, 2024</div>
+                </div>
+                <div class="publication-item fade-in">
+                    <div class="publication-title">Quantum-Resistant Cryptography for Future Wireless Systems</div>
+                    <div class="publication-authors">J. Smith, J. Doe</div>
+                    <div class="publication-journal">Nature Communications, 2023</div>
+                </div>
+                <div class="publication-item fade-in hidden">
+                    <div class="publication-title">Edge Computing Architectures for Low-Latency Applications</div>
+                    <div class="publication-authors">M. Park, S. Lee, J. Doe</div>
+                    <div class="publication-journal">IEEE Internet of Things Journal, 2023</div>
+                </div>
+                <div class="publication-item fade-in hidden">
+                    <div class="publication-title">Artificial Intelligence in Network Resource Allocation</div>
+                    <div class="publication-authors">R. Brown, A. Kim, J. Smith</div>
+                    <div class="publication-journal">Computer Networks, 2023</div>
+                </div>
+                <div class="publication-item fade-in hidden">
+                    <div class="publication-title">Secure Communication Protocols for Smart Grid Systems</div>
+                    <div class="publication-authors">E. Chen, J. Doe, D. Wilson</div>
+                    <div class="publication-journal">IEEE Transactions on Smart Grid, 2022</div>
+                </div>
+            </div>
+            <button class="show-more-btn" id="showMorePublicationsBtn">Show More Publications</button>
+        </div>
+    </section>
+
+    <!-- Recent News Section -->
+    <section id="news">
+        <div class="content-container">
+            <h2 class="section-title">Recent News</h2>
+            <div class="news-grid">
+                <div class="news-item fade-in">
+                    <div class="news-date">September 2025</div>
+                    <h3 class="news-title">New Research Grant Awarded</h3>
+                    <p class="news-content">Our lab has been awarded a major research grant to investigate next-generation wireless communication technologies. This funding will support three PhD students and enable state-of-the-art equipment acquisition.</p>
+                </div>
+                <div class="news-item fade-in">
+                    <div class="news-date">August 2025</div>
+                    <h3 class="news-title">Paper Accepted at IEEE Conference</h3>
+                    <p class="news-content">Congratulations to our team for having their paper on AI-driven network optimization accepted at the prestigious IEEE Global Communications Conference.</p>
+                </div>
+                <div class="news-item fade-in">
+                    <div class="news-date">July 2025</div>
+                    <h3 class="news-title">Lab Expansion Announcement</h3>
+                    <p class="news-content">We are excited to announce the expansion of our laboratory facilities, including new testbeds for 5G and beyond technologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/anwc_lab/" class="social-link" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61570871978970" class="social-link" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/anwclab/posts/?feedView=all" class="social-link" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@ANWCL" class="social-link" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-info">
+                <p style="font-weight: 600; color: #668be8; font-size: 1.1rem;">ANWCL-YTU Laboratory</p>
+                <p>Advanced Networking and Wireless Communications Laboratory</p>
+                <p>Yildiz Technical University</p>
+                <p>Istanbul, Turkey</p>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <p class="footer-copyright">&copy; 2025 ANWCL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 4000);
+
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Show More Members functionality
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const hiddenMembers = document.querySelectorAll('.member-card.hidden');
+        let isExpanded = false;
+        
+        showMoreBtn.addEventListener('click', () => {
+            if (!isExpanded) {
+                // Expand animation
+                hiddenMembers.forEach((member, index) => {
+                    member.style.display = 'block';
+                    setTimeout(() => {
+                        member.classList.remove('hidden');
+                        member.classList.add('expanding');
+                    }, index * 100);
+                });
+                showMoreBtn.textContent = 'Show Less';
+                isExpanded = true;
+            } else {
+                // Collapse animation
+                const reversedMembers = Array.from(hiddenMembers).reverse();
+                reversedMembers.forEach((member, index) => {
+                    setTimeout(() => {
+                        member.classList.add('collapsing');
+                        member.classList.remove('expanding');
+                    }, index * 80);
+                });
+                
+                // Hide after animation completes
+                setTimeout(() => {
+                    hiddenMembers.forEach(member => {
+                        member.classList.add('hidden');
+                        member.classList.remove('collapsing');
+                        member.style.display = 'none';
+                    });
+                }, hiddenMembers.length * 80 + 500);
+                
+                showMoreBtn.textContent = 'Show More Members';
+                isExpanded = false;
+                
+                // Smooth scroll to members section when collapsing
+                setTimeout(() => {
+                    const membersSection = document.getElementById('members');
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = membersSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 200);
+            }
+        });
+
+        // Show More Projects functionality
+        const showMoreProjectsBtn = document.getElementById('showMoreProjectsBtn');
+        const hiddenProjects = document.querySelectorAll('#projects .project-card.hidden');
+        let isProjectsExpanded = false;
+        
+        showMoreProjectsBtn.addEventListener('click', () => {
+            if (!isProjectsExpanded) {
+                hiddenProjects.forEach((project, index) => {
+                    project.style.display = 'block';
+                    setTimeout(() => {
+                        project.classList.remove('hidden');
+                        project.classList.add('expanding');
+                    }, index * 100);
+                });
+                showMoreProjectsBtn.textContent = 'Show Less';
+                isProjectsExpanded = true;
+            } else {
+                const reversedProjects = Array.from(hiddenProjects).reverse();
+                reversedProjects.forEach((project, index) => {
+                    setTimeout(() => {
+                        project.classList.add('collapsing');
+                        project.classList.remove('expanding');
+                    }, index * 80);
+                });
+                
+                setTimeout(() => {
+                    hiddenProjects.forEach(project => {
+                        project.classList.add('hidden');
+                        project.classList.remove('collapsing');
+                        project.style.display = 'none';
+                    });
+                }, hiddenProjects.length * 80 + 500);
+                
+                showMoreProjectsBtn.textContent = 'Show More Projects';
+                isProjectsExpanded = false;
+                
+                setTimeout(() => {
+                    const projectsSection = document.getElementById('projects');
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = projectsSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 200);
+            }
+        });
+
+        // Show More Publications functionality
+        const showMorePublicationsBtn = document.getElementById('showMorePublicationsBtn');
+        const hiddenPublications = document.querySelectorAll('#publications .publication-item.hidden');
+        let isPublicationsExpanded = false;
+        
+        showMorePublicationsBtn.addEventListener('click', () => {
+            if (!isPublicationsExpanded) {
+                hiddenPublications.forEach((publication, index) => {
+                    publication.style.display = 'block';
+                    setTimeout(() => {
+                        publication.classList.remove('hidden');
+                        publication.classList.add('expanding');
+                    }, index * 100);
+                });
+                showMorePublicationsBtn.textContent = 'Show Less';
+                isPublicationsExpanded = true;
+            } else {
+                const reversedPublications = Array.from(hiddenPublications).reverse();
+                reversedPublications.forEach((publication, index) => {
+                    setTimeout(() => {
+                        publication.classList.add('collapsing');
+                        publication.classList.remove('expanding');
+                    }, index * 80);
+                });
+                
+                setTimeout(() => {
+                    hiddenPublications.forEach(publication => {
+                        publication.classList.add('hidden');
+                        publication.classList.remove('collapsing');
+                        publication.style.display = 'none';
+                    });
+                }, hiddenPublications.length * 80 + 500);
+                
+                showMorePublicationsBtn.textContent = 'Show More Publications';
+                isPublicationsExpanded = false;
+                
+                setTimeout(() => {
+                    const publicationsSection = document.getElementById('publications');
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = publicationsSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 200);
+            }
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetSection.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
