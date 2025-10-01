@@ -349,7 +349,7 @@ section:nth-child(odd) {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(102, 139, 232, 1);
 }
-
+/*
 .member-avatar {
     width: 150px;
     height: 150px;
@@ -362,6 +362,22 @@ section:nth-child(odd) {
     font-size: 3rem;
     color: white;
     font-weight: bold;
+}*/
+.member-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; /* makes sure image stays circular */
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* crop to fit circle */
 }
 
 .member-name {
