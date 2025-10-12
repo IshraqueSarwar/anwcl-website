@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Member Profile</title>
+    <link rel="stylesheet" type="text/css" href="styles/member_page_style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="" alt="Lab Member" class="member-image" id="memberImage" onerror="this.src='https://placehold.co/600x800/cccccc/ffffff?text=Image+Not+Found'">
+        </div>
+        <div class="right-section">
+            <!-- These elements are empty. They will be filled by JavaScript. -->
+            <h1 class="name" id="memberName"></h1>
+            <div class="role" id="memberRole"></div>
+            <p class="bio" id="memberBio"></p>
+            <div class="social-links" id="socialLinks"></div>
+            <div class="content-grid">
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div id="educationList"></div>
+                </div>
+                <div class="section">
+                    <h2 class="section-title">Current Projects</h2>
+                    <div id="projectList"></div>
+                </div>
+                <div class="section full-width">
+                    <h2 class="section-title">Selected Publications</h2>
+                    <div id="publicationList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Include the database file -->
+    <script src="database/members.js"></script>
+
+    <!-- 2. Script to read the URL and build the page -->
+    <script>
+        // Function to populate the page with data from a member object
+        function populateProfile(data) {
+            document.title = `${data.name} | Lab Profile`; // Update the page title
+            document.getElementById('memberImage').src = data.image;
+            document.getElementById('memberImage').alt = data.name;
+            document.getElementById('memberName').textContent = data.name;
+            document.getElementById('memberRole').textContent = data.role;
+            document.getElementById('memberBio').textContent = data.bio;
+
+            const socialLinksContainer = document.getElementById('socialLinks');
+            socialLinksContainer.innerHTML = ''; // Clear existing links
+            data.socials.forEach(social => {
+                const link = document.createElement('a');
+                link.href = social.url;
+                link.className = 'social-link';
+                link.target = '_blank';
+                link.innerHTML = `${social.svg} ${social.name}`;
+                socialLinksContainer.appendChild(link);
+            });
+
+            const educationContainer = document.getElementById('educationList');
+            educationContainer.innerHTML = '';
+            data.education.forEach(edu => {
+                const item = document.createElement('div');
+                item.className = 'education-item';
+                item.innerHTML = `<div class="degree">${edu.degree}</div><div class="institution">${edu.institution}</div><div class="year">${edu.year}</div>`;
+                educationContainer.appendChild(item);
+            });
+
+            const projectContainer = document.getElementById('projectList');
+            projectContainer.innerHTML = '';
+            data.projects.forEach(proj => {
+                const item = document.createElement('div');
+                item.className = 'project-item';
+                item.innerHTML = `<div class="project-title">${proj.title}</div><div class="project-description">${proj.description}</div>`;
+                projectContainer.appendChild(item);
+            });
+
+            const publicationContainer = document.getElementById('publicationList');
+            publicationContainer.innerHTML = '';
+            data.publications.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'publication-item';
+                item.innerHTML = `<span class="publication-title">${pub.title}</span> ${pub.authors}`;
+                publicationContainer.appendChild(item);
+            });
+        }
+
+        // Run this script when the page content has loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const memberId = params.get('id');
+
+            if (memberId) {
+                // Find the member in our database array that matches the ID from the URL
+                const memberData = labMembers.find(member => member.id === memberId);
+
+                if (memberData) {
+                    // If we found a member, populate the page with their data
+                    populateProfile(memberData);
+                } else {
+                    // If no member with that ID exists, show an error
+                    document.getElementById('memberName').textContent = 'Member Not Found';
+                    document.querySelector('.right-section').innerHTML = `<h1 class="name">Error: Member with ID "${memberId}" could not be found.</h1>`;
+                }
+            } else {
+                // If no ID was provided in the URL, show an error
+                document.getElementById('memberName').textContent = 'No Member Specified';
+                 document.querySelector('.right-section').innerHTML = `<h1 class="name">Error: No member ID was provided in the URL.</h1>`;
+            }
+        });
+    </script>
+</body>
+</html>

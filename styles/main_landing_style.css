@@ -124,29 +124,29 @@ nav a:hover {
 }
 
 .slide:nth-child(1) {
-    background-image: url("photos/1.jpg")
+    background-image: url("../photos/1.jpg")
     /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
 }
 
 .slide:nth-child(2) {
-    background-image: url("photos/2.jpg")
+    background-image: url("../photos/2.jpg")
     /*background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);*/
 }
 
 .slide:nth-child(3) {
-    background-image: url("photos/3.jpg")
+    background-image: url("../photos/3.jpg")
     /*background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);*/
 }
 .slide:nth-child(4) {
-    background-image: url("photos/4.jpg")
+    background-image: url("../photos/4.jpg")
     /*background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);*/
 }
 .slide:nth-child(5) {
-    background-image: url("photos/5.jpg")
+    background-image: url("../photos/5.jpg")
     /*background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);*/
 }
 .slide:nth-child(6) {
-    background-image: url("photos/6.jpg")
+    background-image: url("../photos/6.jpg")
     /*background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);*/
 }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANWCL-YTU Laboratory</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/main_landing_style.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -71,7 +71,7 @@
     </section>
 
     <!-- Lab Members Section -->
-    <section id="members">
+    <!-- <section id="members">
         <div class="content-container">
             <h2 class="section-title">Lab Members</h2>
             <div class="members-grid">
@@ -99,7 +99,9 @@
                     <p class="member-role">Graduate Student</p>
                     <a href="#" class="member-btn">View Profile</a>
                 </div>
-                <!-- Hidden members initially -->
+                
+
+
                 <div class="member-card fade-in hidden">
                     <div class="member-avatar">SL</div>
                     <h3 class="member-name">Sarah Lee</h3>
@@ -124,6 +126,16 @@
                     <p class="member-role">Graduate Student</p>
                     <a href="#" class="member-btn">View Profile</a>
                 </div>
+            </div>
+            <button class="show-more-btn" id="showMoreBtn">Show More Members</button>
+        </div>
+    </section> -->
+
+    <section id="members">
+        <div class="content-container">
+            <h2 class="section-title">Lab Members</h2>
+            <div class="members-grid" id="members-grid">
+                <!-- Lab members will be dynamically inserted here -->
             </div>
             <button class="show-more-btn" id="showMoreBtn">Show More Members</button>
         </div>
@@ -292,6 +304,256 @@
         </div>
     </footer>
 
+
+    <!-- script to build the member cards -->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('members-grid');
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const membersToShowInitially = 4;
+
+            // Function to get initials from a name for text avatars
+            const getInitials = (name) => {
+                const parts = name.split(' ');
+                let initials = parts[0].substring(0, 1).toUpperCase();
+                if (parts.length > 1) {
+                    const lastName = parts[parts.length - 1];
+                    if(lastName) {
+                       initials += lastName.substring(0, 1).toUpperCase();
+                    }
+                }
+                return initials;
+            };
+            
+            // Generate all member cards from the data file
+            labMembers.forEach((member, index) => {
+                const card = document.createElement('div');
+                // Use the class names from your structure
+                card.className = 'member-card fade-in';
+
+                // Stagger the fade-in animation for a nice effect
+                card.style.animationDelay = `${index * 100}ms`;
+
+                // Hide members that come after the initial amount
+                if (index >= membersToShowInitially) {
+                    card.classList.add('hidden');
+                }
+
+                // Create the avatar: use the member's image if it exists, otherwise generate initials
+                const avatarContent = member.image
+                    ? `<img src="${member.image}" alt="${member.name}">`
+                    : getInitials(member.name);
+                
+                // Construct the inner HTML for the card, matching your structure exactly
+                card.innerHTML = `
+                    <div class="member-avatar">${avatarContent}</div>
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    <a href="profile.html?id=${member.id}" class="member-btn">View Profile</a>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Re-implement the "Show More" / "Show Less" logic
+            showMoreBtn.addEventListener('click', () => {
+                const hiddenCards = document.querySelectorAll('.member-card.hidden');
+                
+                if (hiddenCards.length > 0) {
+                    // If there are hidden cards, show them
+                    hiddenCards.forEach(card => card.classList.remove('hidden'));
+                    showMoreBtn.textContent = 'Show Less Members';
+                } else {
+                    // If all cards are shown, hide the extra ones again
+                    document.querySelectorAll('.member-card').forEach((card, index) => {
+                        if (index >= membersToShowInitially) {
+                            card.classList.add('hidden');
+                        }
+                    });
+                    showMoreBtn.textContent = 'Show More Members';
+                }
+            });
+
+            // Hide the button if there aren't enough members to hide in the first place
+            if (labMembers.length <= membersToShowInitially) {
+                showMoreBtn.style.display = 'none';
+            }
+        });
+    </script> -->
+
+
+
+<script>
+        // Database to populate the member cards
+        const labMembers = [
+          {
+            id: "shahen-shah",
+            name: "A. F. M. Shahen Shah, PhD",
+            role: "Director",
+            image: "photos/director.jpeg",
+          },
+          {
+            id: "jane-doe",
+            name: "Dr. Jane Doe",
+            role: "Postdoctoral Researcher",
+            image: "https://placehold.co/100x100/764ba2/ffffff?text=JD",
+          },
+          { id: "john-smith", name: "John Smith", role: "PhD Candidate" },
+          { id: "alice-kim", name: "Alice Kim", role: "Research Associate" },
+          { id: "michael-park", name: "Michael Park", role: "Graduate Student" },
+          { id: "sarah-lee", name: "Sarah Lee", role: "PhD Candidate" },
+          {
+            id: "robert-brown",
+            name: "Robert Brown",
+            role: "Postdoctoral Researcher",
+            image: "https://placehold.co/100x100/8A2BE2/ffffff?text=RB",
+          },
+          { id: "emily-chen", name: "Emily Chen", role: "Research Assistant" },
+          { id: "david-wilson", name: "David Wilson", role: "Graduate Student" }
+        ];
+
+        // Consolidated script for all page functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- DYNAMIC MEMBER CARD GENERATION ---
+            const membersContainer = document.getElementById('members-grid');
+            if (membersContainer) {
+                const showMoreBtn = document.getElementById('showMoreBtn');
+                const membersToShowInitially = 6;
+
+                const getInitials = (name) => {
+                    const parts = name.split(' ');
+                    let initials = parts[0].substring(0, 1).toUpperCase();
+                    if (parts.length > 1) {
+                        const lastName = parts[parts.length - 1];
+                        if(lastName) {
+                           initials += lastName.substring(0, 1).toUpperCase();
+                        }
+                    }
+                    return initials;
+                };
+                
+                labMembers.forEach((member, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'member-card fade-in';
+                    card.style.animationDelay = `${index * 100}ms`;
+
+                    if (index >= membersToShowInitially) {
+                        card.classList.add('hidden');
+                    }
+
+                    const avatarContent = member.image
+                        ? `<img src="${member.image}" alt="${member.name}">`
+                        : getInitials(member.name);
+                    
+                    card.innerHTML = `
+                        <div class="member-avatar">${avatarContent}</div>
+                        <h3 class="member-name">${member.name}</h3>
+                        <p class="member-role">${member.role}</p>
+                        <a href="member_generate_template.html?id=${member.id}" class="member-btn">View Profile</a>
+                    `;
+                    membersContainer.appendChild(card);
+                });
+
+                showMoreBtn.addEventListener('click', () => {
+                    const hiddenCards = document.querySelectorAll('#members .member-card.hidden');
+                    if (hiddenCards.length > 0) {
+                        hiddenCards.forEach(card => card.classList.remove('hidden'));
+                        showMoreBtn.textContent = 'Show Less Members';
+                    } else {
+                        document.querySelectorAll('#members .member-card').forEach((card, index) => {
+                            if (index >= membersToShowInitially) {
+                                card.classList.add('hidden');
+                            }
+                        });
+                        showMoreBtn.textContent = 'Show More Members';
+                    }
+                });
+
+                if (labMembers.length <= membersToShowInitially) {
+                    showMoreBtn.style.display = 'none';
+                }
+            }
+
+            // --- GENERAL PAGE SCRIPTS ---
+
+            // Slideshow functionality
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            function showSlide(n) {
+                if (slides.length === 0) return;
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            setInterval(() => { showSlide(currentSlide + 1); }, 4000);
+
+            // Navigation scroll effect
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Generic "Show More" functionality for Projects & Publications
+            const setupShowMore = (btnId, sectionId, itemClass) => {
+                const showMoreBtn = document.getElementById(btnId);
+                const hiddenItems = document.querySelectorAll(`#${sectionId} .${itemClass}.hidden`);
+                if (!showMoreBtn) return;
+                
+                let isExpanded = false;
+                showMoreBtn.addEventListener('click', () => {
+                    if (!isExpanded) {
+                        hiddenItems.forEach((item, index) => {
+                            item.style.display = 'block';
+                            setTimeout(() => { item.classList.remove('hidden'); }, index * 100);
+                        });
+                        showMoreBtn.textContent = 'Show Less';
+                        isExpanded = true;
+                    } else {
+                        hiddenItems.forEach(item => { item.classList.add('hidden'); });
+                        showMoreBtn.textContent = 'Show More';
+                        isExpanded = false;
+                    }
+                });
+            };
+
+            // setupShowMore('showMoreProjectsBtn', 'projects', 'project-card');
+            // setupShowMore('showMorePublicationsBtn', 'publications', 'publication-item');
+
+            // Scroll animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+
+
     <script>
         // Slideshow functionality
         let currentSlide = 0;
@@ -317,57 +579,65 @@
             }
         });
 
+
+
+
         // Show More Members functionality
-        const showMoreBtn = document.getElementById('showMoreBtn');
-        const hiddenMembers = document.querySelectorAll('.member-card.hidden');
-        let isExpanded = false;
+        // const showMoreBtn = document.getElementById('showMoreBtn');
+        // const hiddenMembers = document.querySelectorAll('.member-card.hidden');
+        // let isExpanded = false;
         
-        showMoreBtn.addEventListener('click', () => {
-            if (!isExpanded) {
-                // Expand animation
-                hiddenMembers.forEach((member, index) => {
-                    member.style.display = 'block';
-                    setTimeout(() => {
-                        member.classList.remove('hidden');
-                        member.classList.add('expanding');
-                    }, index * 100);
-                });
-                showMoreBtn.textContent = 'Show Less';
-                isExpanded = true;
-            } else {
-                // Collapse animation
-                const reversedMembers = Array.from(hiddenMembers).reverse();
-                reversedMembers.forEach((member, index) => {
-                    setTimeout(() => {
-                        member.classList.add('collapsing');
-                        member.classList.remove('expanding');
-                    }, index * 80);
-                });
+        // showMoreBtn.addEventListener('click', () => {
+        //     if (!isExpanded) {
+        //         // Expand animation
+        //         hiddenMembers.forEach((member, index) => {
+        //             member.style.display = 'block';
+        //             setTimeout(() => {
+        //                 member.classList.remove('hidden');
+        //                 member.classList.add('expanding');
+        //             }, index * 100);
+        //         });
+        //         showMoreBtn.textContent = 'Show Less';
+        //         isExpanded = true;
+        //     } else {
+        //         // Collapse animation
+        //         const reversedMembers = Array.from(hiddenMembers).reverse();
+        //         reversedMembers.forEach((member, index) => {
+        //             setTimeout(() => {
+        //                 member.classList.add('collapsing');
+        //                 member.classList.remove('expanding');
+        //             }, index * 80);
+        //         });
                 
-                // Hide after animation completes
-                setTimeout(() => {
-                    hiddenMembers.forEach(member => {
-                        member.classList.add('hidden');
-                        member.classList.remove('collapsing');
-                        member.style.display = 'none';
-                    });
-                }, hiddenMembers.length * 80 + 500);
+        //         // Hide after animation completes
+        //         setTimeout(() => {
+        //             hiddenMembers.forEach(member => {
+        //                 member.classList.add('hidden');
+        //                 member.classList.remove('collapsing');
+        //                 member.style.display = 'none';
+        //             });
+        //         }, hiddenMembers.length * 80 + 500);
                 
-                showMoreBtn.textContent = 'Show More Members';
-                isExpanded = false;
+        //         showMoreBtn.textContent = 'Show More Members';
+        //         isExpanded = false;
                 
-                // Smooth scroll to members section when collapsing
-                setTimeout(() => {
-                    const membersSection = document.getElementById('members');
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = membersSection.offsetTop - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }, 200);
-            }
-        });
+        //         // Smooth scroll to members section when collapsing
+        //         setTimeout(() => {
+        //             const membersSection = document.getElementById('members');
+        //             const navHeight = document.querySelector('nav').offsetHeight;
+        //             const targetPosition = membersSection.offsetTop - navHeight;
+        //             window.scrollTo({
+        //                 top: targetPosition,
+        //                 behavior: 'smooth'
+        //             });
+        //         }, 200);
+        //     }
+        // });
+
+
+
+
+
 
         // Show More Projects functionality
         const showMoreProjectsBtn = document.getElementById('showMoreProjectsBtn');
