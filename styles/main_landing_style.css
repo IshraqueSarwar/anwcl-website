@@ -489,7 +489,7 @@ section:nth-child(odd) {
 .show-more-btn.hidden {
     display: none;
 }
-
+/*
 .project-card.hidden,
 .publication-item.hidden {
     display: none;
@@ -503,7 +503,88 @@ section:nth-child(odd) {
 .project-card.collapsing,
 .publication-item.collapsing {
     animation: slideOut 0.5s ease forwards;
+}*/
+
+
+
+
+
+/* Project Card Link Wrapper */
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
+
+/* Update existing .project-card styles */
+.project-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Add a subtle indicator that the card is clickable */
+.project-card::after {
+    content: '→';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #668be8;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card-link:hover .project-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 139, 232, 0.3);
+    border-left: 4px solid #668be8;
+}
+
+.project-card-link:hover .project-card::after {
+    opacity: 1;
+    right: 1.5rem;
+}
+
+/* Maintain the title and description styles */
+.project-title {
+    font-size: 1.5rem;
+    color: #0a192f;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.project-card-link:hover .project-title {
+    color: #668be8;
+}
+
+.project-description {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Keep animations for hidden cards */
+.project-card.hidden {
+    display: none;
+}
+
+.project-card-link .project-card.expanding {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.project-card-link .project-card.collapsing {
+    animation: slideOut 0.5s ease forwards;
+}
+
+
+
+
+
 
 @media (max-width: 968px) {
     .projects-container {

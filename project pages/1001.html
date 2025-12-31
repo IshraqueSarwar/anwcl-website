@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Profile</title>
+    <link rel="icon" type="image/x-icon" href="photos/Lablogo.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .project-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .lab-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards 0.5s;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeInImage 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInImage {
+            to { opacity: 1; }
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 30px 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .funding-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.8s;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #48bb78;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .content-section {
+            padding: 50px 60px;
+        }
+
+        .project-main-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1s;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 1.2s; }
+        .section:nth-child(2) { animation-delay: 1.4s; }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .aim-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        .team-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .team-role-group {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .team-role-group:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .role-header {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .member-name {
+            font-size: 0.95rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .member-name::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .member-note {
+            color: #718096;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-header {
+                height: 300px;
+            }
+
+            .project-overlay {
+                padding: 20px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="project-header">
+            <img src="https://placehold.co/80x80/ffffff/667eea?text=Lab+Logo" 
+                 alt="Lab Logo" 
+                 class="lab-logo" 
+                 id="labLogo"
+                 onerror="this.style.display='none'">
+            <img src="https://placehold.co/1400x400/667eea/ffffff?text=Project+Team+Photo" 
+                 alt="Project Team" 
+                 class="project-image" 
+                 id="projectImage"
+                 onerror="this.src='https://placehold.co/1400x400/667eea/ffffff?text=Image+Not+Found'">
+            <div class="project-overlay">
+                <div class="funding-badge" id="fundingBadge">TÜBITAK 3501</div>
+                <div class="project-status">
+                    <span class="status-dot"></span>
+                    <span id="projectStatus">Active Project</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h1 class="project-main-title" id="projectTitle">Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence</h1>
+
+            <div class="section">
+                <h2 class="section-title">Project Aim</h2>
+                <p class="aim-text" id="projectAim">
+                    Recently, increases have been observed in the frequency and negative effects of natural disasters such as earthquakes and floods with climate changes. Solutions are sought for the evaluation of these disasters, reacting quickly and effectively against damages and healing mechanisms. On the other hand, deficiencies in communication and situational awareness will reduce the effectiveness of the proposed solutions. For this purpose, the use of UAVs in disaster management is of great importance in the evaluation and reaction stages due to its advantages such as cost, time, size, and safety for a durable communication network. In this context, the aim of this project is to utilize UAVs and design an efficient FANET in order to manage UAV-assisted emergency networks in disasters and to use UAVs in disaster assistance etc. Thus, emergency networks will help to setup communication and meet data traffic in disaster as well as will save peoples life through disaster assistance.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Research Team</h2>
+                <div class="team-grid" id="teamGrid">
+                    <div class="team-role-group">
+                        <div class="role-header">Project Manager</div>
+                        <div class="member-name">Assoc. Prof. Dr. A. F. M. Shahen Shah</div>
+                    </div>
+
+                    <div class="team-role-group">
+                        <div class="role-header">Researcher</div>
+                        <div class="member-name">Assoc. Prof. Dr. Muhammet Ali Karabulut</div>
+                    </div>
+
+                    <div class="team-role-group">
+                        <div class="role-header">Advisor</div>
+                        <div class="member-name">Prof. Dr. Haci Ilhan</div>
+                    </div>
+
+                    <div class="team-role-group">
+                        <div class="role-header">Scholarship Students</div>
+                        <div class="member-name">Salah Uddin <span class="member-note">PhD Researcher</span></div>
+                        <div class="member-name">Sumaiya Sultana <span class="member-note">M.Sc. Researcher</span></div>
+                        <div class="member-name">Hava KARABAĞ <span class="member-note">M.Sc. Researcher</span></div>
+                        <div class="member-name">Md. Thouhidur Rahman <span class="member-note">M.Sc. (Completed, Lab Alumni)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Database structure for projects
+        const projects = [
+            {
+                id: "tubitak-1001-mimo",
+                labLogo: "../photos/lablogo.png",
+                image: "../photos/1001.jpg",
+                fundingSource: "Tübitak 1001",
+                title: "Intelligent reflecting surface assisted Fluid Antenna Multiple Access with MIMO using artificial intelligence for 6G",
+                status: "Active Project",
+                aim: "While 5G communications are being rolled out around the world, 6G communications have attracted much attention from both the industry and the academia. Compared with 5G, 6G will have a higher transmission rate, spectrum efficiency, greater connection capacity, shorter delay, wider coverage and stronger anti-interference capability, so as to meet the various network requirements for industries. Considering the aforementioned aspects, a mechanism will be developed integrating emerging technologies FAMA, IRS, MIMO with AI for 6G in this project.While 5G communications are being rolled out around the world, 6G communications have attracted much attention from both the industry and the academia. Compared with 5G, 6G will have a higher transmission rate, spectrum efficiency, greater connection capacity, shorter delay, wider coverage and stronger anti-interference capability, so as to meet the various network requirements for industries. Considering the aforementioned aspects, a mechanism will be developed integrating emerging technologies FAMA, IRS, MIMO with AI for 6G in this project.",
+                team: {
+                    manager: ["Assoc. Prof. Dr. A. F. M. Shahen Shah"],
+                    researchers: ["Assoc. Prof. Dr. Muhammet Ali Karabulut"],
+                    // advisors: ["Prof. Dr. Haci Ilhan"],
+                    students: [
+                        { name: "Yalda Babaie", note: "PhD Researcher" },
+                        { name: "Aynur Sena Çetinkaya", note: "M.Sc. Researcher" },
+                        { name: "Abdülsamet Karlı", note: "M.Sc. Researcher" },
+                        
+                    ]
+                }
+            }
+        ];
+
+        // Function to populate the page
+        function populateProject(data) {
+            document.title = `${data.fundingSource} | Lab Project`;
+            document.getElementById('labLogo').src = data.labLogo;
+            document.getElementById('projectImage').src = data.image;
+            document.getElementById('fundingBadge').textContent = data.fundingSource;
+            document.getElementById('projectTitle').textContent = data.title;
+            document.getElementById('projectStatus').textContent = data.status;
+            document.getElementById('projectAim').textContent = data.aim;
+
+            const teamGrid = document.getElementById('teamGrid');
+            teamGrid.innerHTML = '';
+
+            // Manager
+            if (data.team.manager && data.team.manager.length > 0) {
+                const managerGroup = document.createElement('div');
+                managerGroup.className = 'team-role-group';
+                managerGroup.innerHTML = `<div class="role-header">Project Manager</div>`;
+                data.team.manager.forEach(name => {
+                    managerGroup.innerHTML += `<div class="member-name">${name}</div>`;
+                });
+                teamGrid.appendChild(managerGroup);
+            }
+
+            // Researchers
+            if (data.team.researchers && data.team.researchers.length > 0) {
+                const researcherGroup = document.createElement('div');
+                researcherGroup.className = 'team-role-group';
+                researcherGroup.innerHTML = `<div class="role-header">Researcher${data.team.researchers.length > 1 ? 's' : ''}</div>`;
+                data.team.researchers.forEach(name => {
+                    researcherGroup.innerHTML += `<div class="member-name">${name}</div>`;
+                });
+                teamGrid.appendChild(researcherGroup);
+            }
+
+            // Advisors
+            if (data.team.advisors && data.team.advisors.length > 0) {
+                const advisorGroup = document.createElement('div');
+                advisorGroup.className = 'team-role-group';
+                advisorGroup.innerHTML = `<div class="role-header">Advisor${data.team.advisors.length > 1 ? 's' : ''}</div>`;
+                data.team.advisors.forEach(name => {
+                    advisorGroup.innerHTML += `<div class="member-name">${name}</div>`;
+                });
+                teamGrid.appendChild(advisorGroup);
+            }
+
+            // Students
+            if (data.team.students && data.team.students.length > 0) {
+                const studentGroup = document.createElement('div');
+                studentGroup.className = 'team-role-group';
+                studentGroup.innerHTML = `<div class="role-header">Scholarship Students</div>`;
+                data.team.students.forEach(student => {
+                    studentGroup.innerHTML += `<div class="member-name">${student.name} <span class="member-note">${student.note}</span></div>`;
+                });
+                teamGrid.appendChild(studentGroup);
+            }
+        }
+
+        // Load project on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('id');
+
+            if (projectId) {
+                const projectData = projects.find(proj => proj.id === projectId);
+                if (projectData) {
+                    populateProject(projectData);
+                } else {
+                    document.querySelector('.container').innerHTML = '<div style="padding: 50px; text-align: center;"><h1>Project Not Found</h1></div>';
+                }
+            } else {
+                // Default to first project if no ID specified
+                populateProject(projects[0]);
+            }
+        });
+    </script>
+</body>
+</html>
