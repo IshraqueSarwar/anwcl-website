@@ -34,12 +34,88 @@
             to { opacity: 1; }
         }
 
-        .project-header {
+        ./*project-header {
             position: relative;
             height: 400px;
             overflow: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+
+*/
+
+
+        .project-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 0; /* Ensure no margin */
+        }
+
+        .header-images {
+            display: flex;
+            height: 100%;
+            gap: 2px;
+        }
+
+        .image-container {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            animation: fadeInImage 1s ease forwards 0.3s;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .header-image {
+            transform: scale(1.05);
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #667eea;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.7s;
+        }
+
+        @media (max-width: 768px) {
+            .header-images {
+                flex-direction: column;
+            }
+            
+            .image-container {
+                height: 50%;
+            }
+        }
+        /*.lab-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards 0.5s;
+        }*/
 
         .lab-logo {
             position: absolute;
@@ -56,6 +132,23 @@
             opacity: 0;
             animation: fadeIn 0.8s ease forwards 0.5s;
         }
+        .image-label {
+            position: absolute;
+            bottom: 60px; /* Changed from 60px to give more space */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #667eea;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.7s;
+            z-index: 3; /* Add this line */
+        }
+
+
 
         .project-image {
             width: 100%;
@@ -69,7 +162,7 @@
             to { opacity: 1; }
         }
 
-        .project-overlay {
+        /*.project-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -80,6 +173,20 @@
             display: flex;
             align-items: center;
             gap: 20px;
+        }*/
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 15px 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
         }
 
         .funding-badge {
@@ -119,6 +226,9 @@
 
         .content-section {
             padding: 50px 60px;
+            background: white; /
+            position: relative;
+            /*z-index: 10; */
         }
 
         .project-main-title {
@@ -234,6 +344,22 @@
                 padding: 30px 20px;
             }
         }
+
+        .pulse-green {
+          animation: greenPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes greenPulse {
+          0%, 100% {
+            color: rgba(0, 200, 0, 0.5);
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+          }
+          50% {
+            color: rgba(0, 200, 0, 1);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
+                         0 0 20px rgba(0, 255, 0, 0.6);
+          }
+        }
     </style>
 </head>
 <body>
@@ -244,23 +370,39 @@
                  class="lab-logo" 
                  id="labLogo"
                  onerror="this.style.display='none'">
-            <img src="https://placehold.co/1400x400/667eea/ffffff?text=Project+Team+Photo" 
-                 alt="Project Team" 
-                 class="project-image" 
-                 id="projectImage"
-                 onerror="this.src='https://placehold.co/1400x400/667eea/ffffff?text=Image+Not+Found'">
-            <div class="project-overlay">
-                <div class="funding-badge" id="fundingBadge">TÜBITAK 3501</div>
+            
+            <div class="image-container">
+                    <img src="https://placehold.co/700x400/764ba2/ffffff?text=Project+Photo" 
+                         alt="Project Work" 
+                         class="header-image" 
+                         id="projectWorkImage"
+                         onerror="this.src='https://placehold.co/700x400/764ba2/ffffff?text=Image+Not+Found'">
+                    
+                </div>
+                <div class="image-container">
+                    <img src="https://placehold.co/700x400/667eea/ffffff?text=Project+Team+Photo" 
+                         alt="Project Team" 
+                         class="header-image" 
+                         id="projectImage"
+                         onerror="this.src='https://placehold.co/700x400/667eea/ffffff?text=Image+Not+Found'">
+                    
+                </div>
+            </div>
+            
+<!--             <div class="project-overlay">
+                <div class="funding-badge" id="fundingBadge">TÜBİTAK 1001</div>
                 <div class="project-status">
                     <span class="status-dot"></span>
                     <span id="projectStatus">Active Project</span>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="content-section">
+            <h3 class="pulse-green">Active project</h3>
             <h1 class="project-main-title" id="projectTitle">Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence</h1>
 
+            
             <div class="section">
                 <h2 class="section-title">Project Aim</h2>
                 <p class="aim-text" id="projectAim">
@@ -305,6 +447,7 @@
                 id: "tubitak-1001-mimo",
                 labLogo: "../photos/lablogo.png",
                 image: "../photos/1001.jpg",
+                projectWorkImage: "../photos/1001_1.jpg",
                 fundingSource: "Tübitak 1001",
                 title: "Intelligent reflecting surface assisted Fluid Antenna Multiple Access with MIMO using artificial intelligence for 6G",
                 status: "Active Project",
@@ -328,6 +471,7 @@
             document.title = `${data.fundingSource} | Lab Project`;
             document.getElementById('labLogo').src = data.labLogo;
             document.getElementById('projectImage').src = data.image;
+            document.getElementById('projectWorkImage').src = data.projectWorkImage;
             document.getElementById('fundingBadge').textContent = data.fundingSource;
             document.getElementById('projectTitle').textContent = data.title;
             document.getElementById('projectStatus').textContent = data.status;

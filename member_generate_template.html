@@ -41,6 +41,7 @@
     <!-- 2. Script to read the URL and build the page -->
     <script>
         // Function to populate the page with data from a member object
+        // Function to populate the page with data from a member object
         function populateProfile(data) {
             document.title = `${data.name} | Lab Profile`; // Update the page title
             document.getElementById('memberImage').src = data.image;
@@ -62,30 +63,47 @@
 
             const educationContainer = document.getElementById('educationList');
             educationContainer.innerHTML = '';
-            data.education.forEach(edu => {
-                const item = document.createElement('div');
-                item.className = 'education-item';
-                item.innerHTML = `<div class="degree">${edu.degree}</div><div class="institution">${edu.institution}</div><div class="year">${edu.year}</div>`;
-                educationContainer.appendChild(item);
-            });
+            // Hide the education section if there's no data
+            if (data.education && data.education.length > 0) {
+                data.education.forEach(edu => {
+                    const item = document.createElement('div');
+                    item.className = 'education-item';
+                    item.innerHTML = `<div class="degree">${edu.degree}</div><div class="institution">${edu.institution}</div><div class="year">${edu.year}</div>`;
+                    educationContainer.appendChild(item);
+                });
+            } else {
+                educationContainer.parentElement.style.display = 'none';
+            }
 
             const projectContainer = document.getElementById('projectList');
             projectContainer.innerHTML = '';
-            data.projects.forEach(proj => {
-                const item = document.createElement('div');
-                item.className = 'project-item';
-                item.innerHTML = `<div class="project-title">${proj.title}</div><div class="project-description">${proj.description}</div>`;
-                projectContainer.appendChild(item);
-            });
+            // Hide the projects section if there's no data
+            if (data.projects && data.projects.length > 0) {
+                data.projects.forEach(proj => {
+                    const item = document.createElement('div');
+                    item.className = 'project-item';
+                    item.innerHTML = `<div class="project-title">${proj.title}</div><div class="project-description">${proj.description}</div>`;
+                    projectContainer.appendChild(item);
+                });
+            } else {
+                projectContainer.parentElement.style.display = 'none';
+            }
 
             const publicationContainer = document.getElementById('publicationList');
             publicationContainer.innerHTML = '';
-            data.publications.forEach(pub => {
-                const item = document.createElement('div');
-                item.className = 'publication-item';
-                item.innerHTML = `<span class="publication-title">${pub.title}</span> ${pub.authors}`;
-                publicationContainer.appendChild(item);
-            });
+            if (data.publications && data.publications.length > 0) {
+                data.publications.forEach(pub => {
+                    const item = document.createElement('div');
+                    item.className = 'publication-item';
+                    item.innerHTML = `<span class="publication-title">${pub.title}</span> ${pub.authors}`;
+                    publicationContainer.appendChild(item);
+                });
+            } else {
+                // Only hide if the element exists
+                if (publicationContainer.parentElement) {
+                    publicationContainer.parentElement.style.display = 'none';
+                }
+            }
         }
 
         // Run this script when the page content has loaded
