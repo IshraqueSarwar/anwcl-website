@@ -34,88 +34,13 @@
             to { opacity: 1; }
         }
 
-        ./*project-header {
+        .project-image-container {
             position: relative;
-            height: 400px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-*/
-
-
-        .project-header {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin-bottom: 0; /* Ensure no margin */
-        }
-
-        .header-images {
-            display: flex;
-            height: 100%;
-            gap: 2px;
-        }
-
-        .image-container {
-            position: relative;
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .header-image {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            opacity: 0;
-            animation: fadeInImage 1s ease forwards 0.3s;
-            transition: transform 0.3s ease;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-
-        .image-container:hover .header-image {
-            transform: scale(1.05);
-        }
-
-        .image-label {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #667eea;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.7s;
-        }
-
-        @media (max-width: 768px) {
-            .header-images {
-                flex-direction: column;
-            }
-            
-            .image-container {
-                height: 50%;
-            }
-        }
-        /*.lab-logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards 0.5s;
-        }*/
 
         .lab-logo {
             position: absolute;
@@ -132,144 +57,108 @@
             opacity: 0;
             animation: fadeIn 0.8s ease forwards 0.5s;
         }
-        .image-label {
-            position: absolute;
-            bottom: 60px; /* Changed from 60px to give more space */
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #667eea;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.7s;
-            z-index: 3; /* Add this line */
-        }
-
-
 
         .project-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             opacity: 0;
             animation: fadeInImage 1s ease forwards 0.3s;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image-container:hover .project-image {
+            transform: scale(1.05);
         }
 
         @keyframes fadeInImage {
             to { opacity: 1; }
         }
 
-        /*.project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-            padding: 30px 40px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }*/
-
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-            padding: 15px 40px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            z-index: 10;
-        }
-
-        .funding-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.6s;
-        }
-
-        .project-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.8s;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #48bb78;
-            animation: pulse 2s ease infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
         .content-section {
             padding: 50px 60px;
-            background: white; /
-            position: relative;
-            /*z-index: 10; */
+            background: white;
+        }
+
+        .pulse-green {
+            animation: greenPulse 2s ease-in-out infinite;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        @keyframes greenPulse {
+            0%, 100% {
+                color: rgba(0, 200, 0, 0.5);
+                text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+            }
+            50% {
+                color: rgba(0, 200, 0, 1);
+                text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
+                             0 0 20px rgba(0, 255, 0, 0.6);
+            }
         }
 
         .project-main-title {
             font-size: 2.2rem;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.3;
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 1s;
+            animation: fadeInUp 0.8s ease forwards 0.5s;
         }
 
-        .section {
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: justify;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.7s;
+        }
+
+        .team-image-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: #f7fafc;
+            border-radius: 12px;
             margin-bottom: 40px;
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            animation: fadeInUp 0.8s ease forwards 0.9s;
         }
 
-        .section:nth-child(1) { animation-delay: 1.2s; }
-        .section:nth-child(2) { animation-delay: 1.4s; }
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-image-container:hover .team-image {
+            transform: scale(1.05);
+        }
 
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             padding-bottom: 8px;
             border-bottom: 3px solid #667eea;
             display: inline-block;
-        }
-
-        .aim-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #4a5568;
-            text-align: justify;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1.1s;
         }
 
         .team-grid {
             display: grid;
             gap: 24px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1.3s;
         }
 
         .team-role-group {
@@ -328,113 +217,82 @@
         }
 
         @media (max-width: 768px) {
-            .project-header {
+            .project-image-container,
+            .team-image-container {
                 height: 300px;
-            }
-
-            .project-overlay {
-                padding: 20px;
-            }
-
-            .project-title {
-                font-size: 1.5rem;
             }
 
             .content-section {
                 padding: 30px 20px;
             }
-        }
 
-        .pulse-green {
-          animation: greenPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes greenPulse {
-          0%, 100% {
-            color: rgba(0, 200, 0, 0.5);
-            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-          }
-          50% {
-            color: rgba(0, 200, 0, 1);
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
-                         0 0 20px rgba(0, 255, 0, 0.6);
-          }
+            .project-main-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="project-header">
+        <!-- Project Image -->
+        <div class="project-image-container">
             <img src="https://placehold.co/80x80/ffffff/667eea?text=Lab+Logo" 
                  alt="Lab Logo" 
                  class="lab-logo" 
                  id="labLogo"
                  onerror="this.style.display='none'">
-            
-            <div class="image-container">
-                    <img src="https://placehold.co/700x400/764ba2/ffffff?text=Project+Photo" 
-                         alt="Project Work" 
-                         class="header-image" 
-                         id="projectWorkImage"
-                         onerror="this.src='https://placehold.co/700x400/764ba2/ffffff?text=Image+Not+Found'">
-                    
-                </div>
-                <div class="image-container">
-                    <img src="https://placehold.co/700x400/667eea/ffffff?text=Project+Team+Photo" 
-                         alt="Project Team" 
-                         class="header-image" 
-                         id="projectImage"
-                         onerror="this.src='https://placehold.co/700x400/667eea/ffffff?text=Image+Not+Found'">
-                    
-                </div>
-            </div>
-            
-<!--             <div class="project-overlay">
-                <div class="funding-badge" id="fundingBadge">TÜBİTAK 1001</div>
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    <span id="projectStatus">Active Project</span>
-                </div>
-            </div> -->
+            <img src="https://placehold.co/1400x400/667eea/ffffff?text=Project+Photo" 
+                 alt="Project" 
+                 class="project-image" 
+                 id="projectImage"
+                 onerror="this.src='https://placehold.co/1400x400/667eea/ffffff?text=Image+Not+Found'">
         </div>
 
         <div class="content-section">
+            <!-- Status and Title -->
             <h3 class="pulse-green">Active project</h3>
-            <h1 class="project-main-title" id="projectTitle">Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence</h1>
+            <h1 class="project-main-title" id="projectTitle">
+                Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence
+            </h1>
 
-            
-            <div class="section">
-                <h2 class="section-title">Project Aim</h2>
-                <p class="aim-text" id="projectAim">
-                    Recently, increases have been observed in the frequency and negative effects of natural disasters such as earthquakes and floods with climate changes. Solutions are sought for the evaluation of these disasters, reacting quickly and effectively against damages and healing mechanisms. On the other hand, deficiencies in communication and situational awareness will reduce the effectiveness of the proposed solutions. For this purpose, the use of UAVs in disaster management is of great importance in the evaluation and reaction stages due to its advantages such as cost, time, size, and safety for a durable communication network. In this context, the aim of this project is to utilize UAVs and design an efficient FANET in order to manage UAV-assisted emergency networks in disasters and to use UAVs in disaster assistance etc. Thus, emergency networks will help to setup communication and meet data traffic in disaster as well as will save peoples life through disaster assistance.
-                </p>
+            <!-- Project Description -->
+            <p class="project-description" id="projectDescription">
+                Recently, increases have been observed in the frequency and negative effects of natural disasters such as earthquakes and floods with climate changes. Solutions are sought for the evaluation of these disasters, reacting quickly and effectively against damages and healing mechanisms. On the other hand, deficiencies in communication and situational awareness will reduce the effectiveness of the proposed solutions. For this purpose, the use of UAVs in disaster management is of great importance in the evaluation and reaction stages due to its advantages such as cost, time, size, and safety for a durable communication network. In this context, the aim of this project is to utilize UAVs and design an efficient FANET in order to manage UAV-assisted emergency networks in disasters and to use UAVs in disaster assistance etc. Thus, emergency networks will help to setup communication and meet data traffic in disaster as well as will save peoples life through disaster assistance.
+            </p>
+
+            <!-- Team Photo -->
+            <div class="team-image-container">
+                <img src="https://placehold.co/1400x400/764ba2/ffffff?text=Research+Team+Photo" 
+                     alt="Research Team" 
+                     class="team-image" 
+                     id="teamImage"
+                     onerror="this.src='https://placehold.co/1400x400/764ba2/ffffff?text=Image+Not+Found'">
             </div>
 
-            <div class="section">
-                <h2 class="section-title">Research Team</h2>
-                <div class="team-grid" id="teamGrid">
-                    <div class="team-role-group">
-                        <div class="role-header">Project Manager</div>
-                        <div class="member-name">Assoc. Prof. Dr. A. F. M. Shahen Shah</div>
-                    </div>
+            <!-- Research Team Section -->
+            <h2 class="section-title">Research Team</h2>
+            <div class="team-grid" id="teamGrid">
+                <div class="team-role-group">
+                    <div class="role-header">Project Manager</div>
+                    <div class="member-name">Assoc. Prof. Dr. A. F. M. Shahen Shah</div>
+                </div>
 
-                    <div class="team-role-group">
-                        <div class="role-header">Researcher</div>
-                        <div class="member-name">Assoc. Prof. Dr. Muhammet Ali Karabulut</div>
-                    </div>
+                <div class="team-role-group">
+                    <div class="role-header">Researcher</div>
+                    <div class="member-name">Assoc. Prof. Dr. Muhammet Ali Karabulut</div>
+                </div>
 
-                    <div class="team-role-group">
-                        <div class="role-header">Advisor</div>
-                        <div class="member-name">Prof. Dr. Haci Ilhan</div>
-                    </div>
+                <div class="team-role-group">
+                    <div class="role-header">Advisor</div>
+                    <div class="member-name">Prof. Dr. Haci Ilhan</div>
+                </div>
 
-                    <div class="team-role-group">
-                        <div class="role-header">Scholarship Students</div>
-                        <div class="member-name">Salah Uddin <span class="member-note">PhD Researcher</span></div>
-                        <div class="member-name">Sumaiya Sultana <span class="member-note">M.Sc. Researcher</span></div>
-                        <div class="member-name">Hava KARABAĞ <span class="member-note">M.Sc. Researcher</span></div>
-                        <div class="member-name">Md. Thouhidur Rahman <span class="member-note">M.Sc. (Completed, Lab Alumni)</span></div>
-                    </div>
+                <div class="team-role-group">
+                    <div class="role-header">Scholarship Students</div>
+                    <div class="member-name">Salah Uddin <span class="member-note">PhD Researcher</span></div>
+                    <div class="member-name">Sumaiya Sultana <span class="member-note">M.Sc. Researcher</span></div>
+                    <div class="member-name">Hava KARABAĞ <span class="member-note">M.Sc. Researcher</span></div>
+                    <div class="member-name">Md. Thouhidur Rahman <span class="member-note">M.Sc. (Completed, Lab Alumni)</span></div>
                 </div>
             </div>
         </div>
@@ -444,23 +302,22 @@
         // Database structure for projects
         const projects = [
             {
-                id: "tubitak-1001-mimo",
+                id: "tubitak-1001-uav",
                 labLogo: "../photos/lablogo.png",
-                image: "../photos/1001.jpg",
-                projectWorkImage: "../photos/1001_1.jpg",
-                fundingSource: "Tübitak 1001",
-                title: "Intelligent reflecting surface assisted Fluid Antenna Multiple Access with MIMO using artificial intelligence for 6G",
+                projectImage: "../photos/1001_1.jpg",
+                teamImage: "../photos/1001.jpg",
+                title: "Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence",
                 status: "Active Project",
-                aim: "While 5G communications are being rolled out around the world, 6G communications have attracted much attention from both the industry and the academia. Compared with 5G, 6G will have a higher transmission rate, spectrum efficiency, greater connection capacity, shorter delay, wider coverage and stronger anti-interference capability, so as to meet the various network requirements for industries. Considering the aforementioned aspects, a mechanism will be developed integrating emerging technologies FAMA, IRS, MIMO with AI for 6G in this project.While 5G communications are being rolled out around the world, 6G communications have attracted much attention from both the industry and the academia. Compared with 5G, 6G will have a higher transmission rate, spectrum efficiency, greater connection capacity, shorter delay, wider coverage and stronger anti-interference capability, so as to meet the various network requirements for industries. Considering the aforementioned aspects, a mechanism will be developed integrating emerging technologies FAMA, IRS, MIMO with AI for 6G in this project.",
+                description: "Recently, increases have been observed in the frequency and negative effects of natural disasters such as earthquakes and floods with climate changes. Solutions are sought for the evaluation of these disasters, reacting quickly and effectively against damages and healing mechanisms. On the other hand, deficiencies in communication and situational awareness will reduce the effectiveness of the proposed solutions. For this purpose, the use of UAVs in disaster management is of great importance in the evaluation and reaction stages due to its advantages such as cost, time, size, and safety for a durable communication network. In this context, the aim of this project is to utilize UAVs and design an efficient FANET in order to manage UAV-assisted emergency networks in disasters and to use UAVs in disaster assistance etc. Thus, emergency networks will help to setup communication and meet data traffic in disaster as well as will save peoples life through disaster assistance.",
                 team: {
                     manager: ["Assoc. Prof. Dr. A. F. M. Shahen Shah"],
                     researchers: ["Assoc. Prof. Dr. Muhammet Ali Karabulut"],
-                    // advisors: ["Prof. Dr. Haci Ilhan"],
+                    advisors: ["Prof. Dr. Haci Ilhan"],
                     students: [
-                        { name: "Yalda Babaie", note: "PhD Researcher" },
-                        { name: "Aynur Sena Çetinkaya", note: "M.Sc. Researcher" },
-                        { name: "Abdülsamet Karlı", note: "M.Sc. Researcher" },
-                        
+                        { name: "Salah Uddin", note: "PhD Researcher" },
+                        { name: "Sumaiya Sultana", note: "M.Sc. Researcher" },
+                        { name: "Hava KARABAĞ", note: "M.Sc. Researcher" },
+                        { name: "Md. Thouhidur Rahman", note: "M.Sc. (Completed, Lab Alumni)" }
                     ]
                 }
             }
@@ -468,14 +325,12 @@
 
         // Function to populate the page
         function populateProject(data) {
-            document.title = `${data.fundingSource} | Lab Project`;
+            document.title = `${data.title.substring(0, 50)}... | Lab Project`;
             document.getElementById('labLogo').src = data.labLogo;
-            document.getElementById('projectImage').src = data.image;
-            document.getElementById('projectWorkImage').src = data.projectWorkImage;
-            document.getElementById('fundingBadge').textContent = data.fundingSource;
+            document.getElementById('projectImage').src = data.projectImage;
+            document.getElementById('teamImage').src = data.teamImage;
             document.getElementById('projectTitle').textContent = data.title;
-            document.getElementById('projectStatus').textContent = data.status;
-            document.getElementById('projectAim').textContent = data.aim;
+            document.getElementById('projectDescription').textContent = data.description;
 
             const teamGrid = document.getElementById('teamGrid');
             teamGrid.innerHTML = '';
