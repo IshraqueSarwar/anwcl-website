@@ -7,7 +7,7 @@ const labMembers = [
     id: "shahen-shah",
     name: "Assoc. Prof. A. F. M. Shahen Shah",
     role: "Director",
-    image: "photos/director.jpeg",
+    image: "photos/director.webp",
     bio: "A. F. M. Shahen Shah is an Associate Professor with the Department of Electronics and Communication Engineering, Yildiz Technical University, Istanbul, Türkiye, where he also serves as the Director of the AI and Next-generation Wireless Communication Laboratory (ANWCL). He received the B.Sc. degree in Electronics and Telecommunication Engineering from Daffodil International University, Bangladesh, in 2009, the M.Sc. degree in Information Technology from the University of Dhaka, Bangladesh, in 2011, and the Ph.D. degree in Electronics and Communication Engineering from Yildiz Technical University, Türkiye, in 2020. For his doctoral research, Dr. Shahen received the Gold Medal at the 32nd International Invention, Innovation & Technology Exhibition (ITEX 2021). He is the author of a book and has published numerous research papers in reputed international journals and conferences. His current research interests include wireless communications, artificial intelligence, 6G networks, satellite communications, and Internet of Things (IoT). Dr. Shahen has been a Senior Member of IEEE since 2019. He has served as a Technical Program Committee member for several international conferences and as a regular reviewer for many high-impact journals. He is currently the Editor-in-Chief of the ICCK Transactions on Mobile and Wireless Intelligence and the ICRRD Quality Index Research Journal, an Editor for The Open Transportation Journal (Bentham) and Discover Vehicles (Springer), and an Associate Editor for the Journal of Cyber Security Technology (Taylor & Francis).",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/a-f-m-shahen-shah-phd-b9221a34/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -42,7 +42,7 @@ const labMembers = [
     id: "ali-karabulat",
     name: "Assoc. Prof. M Ali KARABULUT",
     role: "Co-director",
-    image: "photos/karabulat.jpeg",
+    image: "photos/karabulat.webp",
     bio: "M Ali KARABULUT received his B.Sc. degree in Electrical and Electronics Engineering from the Mustafa Kemal University, Hatay, Turkey. He completed his M.Sc. and Ph.D. degrees in Electronics and Communication Engineering from Yildiz Technical University, Istanbul, Turkey. Since 2013, he is a research assistant in Department of Electronics and Communication Engineering at Yildiz Technical University. His research areas include digital communication, cooperative communication, MAC protocols for VANETs. He is a member of IEEE.",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/m-ali-karabulut/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -73,7 +73,7 @@ const labMembers = [
     id: "anis",
     name: "Mohammed Anis Oukebdane",
     role: "PhD Researcher",
-    image: "photos/anis.jpg",
+    image: "photos/anis.webp",
     bio: "PhD candidate | UAV Systems Innovator | Software Developer | Telecommunications Engineer | AI for 6G & Disaster Tech",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/maoukebdane/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -84,7 +84,7 @@ const labMembers = [
     education: [
       { degree: "Ph.D. in Electronics and Communication Engineering", institution: "Yildiz Technical University", year: "2023-present" },
       // { degree: "M.Sc. in ICT", institution: "Bangladesh University of Engineering & Technology", year: "2011-2013" },
-      { degree: "M.Sc. in Electronics and Telecommunication Engineering", institution: "Comilla University, Bangladesh", year: "2018-2020" },
+      { degree: "M.Sc. in Electronics and Telecommunication Engineering", institution: "Mustapha Stambouli University", year: "2018-2020" },
       { degree: "B.Sc. in Electronics and Telecommunication Engineering", institution: "Mustapha Stambouli University", year: "2015-2018" }
     ],
     // projects: [
@@ -103,7 +103,7 @@ const labMembers = [
     id: "salah",
     name: "Salah Uddin",
     role: "PhD Researcher",
-    image: "photos/salah.jpeg",
+    image: "photos/salah.webp",
     bio: "Salah Uddin received the B.Sc. degree in electronic and telecommunication engineering from International Islamic University Chittagong, Bangladesh, in 2021, and the M.Sc. degree in computer science from Comilla University, Bangladesh, in 2023. He is currently working toward the Ph.D. degree in electronics and communication engineering with Yildiz Technical University, Istanbul, Türkiye. His research interests include wireless communications, cooperative communication, UAV ad hoc networks, and artificial intelligence.",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/132165werew654/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -138,7 +138,7 @@ const labMembers = [
     id: "yalda",
     name: "Yalda Babaie",
     role: "PhD Researcher",
-    image: "photos/yalda.jpg",
+    image: "photos/yalda.webp",
     bio: "PhD candidate | UAV Systems Innovator | Software Developer | Telecommunications Engineer | AI for 6G & Disaster Tech",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/yalda-babaie-aaa112261/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -170,7 +170,7 @@ const labMembers = [
     id: "aynur",
     name: "Aynur Sena Çetinkaya",
     role: "MSc Student & Researcher",
-    image: "photos/aynur.jpeg",
+    image: "photos/aynur.webp",
     bio: "Graduate student at Yildiz Technical University in Electronics and Communication Engineering with a B.Sc. in Electrical and Electronics Engineering from Izmir Katip Celebi University. Interested in wireless communications, signal processing, and artificial intelligence.",
     socials: [
       { name: "LinkedIn", url: "www.linkedin.com/in/aynur-sena-cetinkaya", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -194,7 +194,7 @@ const labMembers = [
     id: "sumaiya",
     name: "Sumaiya Sultana",
     role: "MSc Student & Researcher",
-    image: "photos/sumaiya.jpeg",
+    image: "photos/sumaiya.webp",
     bio: "I am a Master's student in Communication Engineering at Yıldız Technical University, currently working as a Graduate Research Assistant in the AI and Next Generation Wireless Communication Lab (ANWCL). I am involved in YTÜ-BAP and TÜBİTAK 3501 funded projects focused on the architecture of emergency communication systems using UAVs in 5G and beyond. My research interests include wireless communication, cooperative communication, network optimization, and AI.",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/sumaiya-sultana-73841b20a/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -219,7 +219,7 @@ const labMembers = [
     id: "abdul",
     name: "Abdülsamet Karlı",
     role: "M.Sc. Student and Researcher",
-    image: "photos/abdulsamet.jpg",
+    image: "photos/abdulsamet.webp",
     bio: "M.Sc. Student in Communication Engineering, Yildiz Technical University Researcher at AI and Next-Generation Wireless Communication Laboratory (ANWCL)",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/abdulsametkarli", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -243,7 +243,7 @@ const labMembers = [
     id: "ece",
     name: "Ece Tan",
     role: "Undergraduate Student and Assistant Researcher",
-    image: "photos/ece.jpg",
+    image: "photos/ece.webp",
     bio: "YTU Electronics and Communication Engineering Student",
     socials: [
       { name: "LinkedIn", url: "www.linkedin.com/in/ece-tan", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -267,7 +267,7 @@ const labMembers = [
     id: "yigit",
     name: "Osman Yiğit Küçükkıratlı",
     role: "Undergraduate Student and Assistant Researcher",
-    image: "photos/yigit.jpg",
+    image: "photos/yigit.webp",
     bio: "Undergraduate research assistant at ANWCL, developing AI-enabled MIMO and fluid-antenna solutions for 6G communication systems.",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/yigitkucukkiratli", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
@@ -291,7 +291,7 @@ const labMembers = [
     id: "siam",
     name: "Ishraque Sarwar Siam",
     role: "Undergraduate Student and Assistant Researcher",
-    image: "photos/siam.jpg",
+    image: "photos/siam.webp",
     bio: "ANWCL research assistant.",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/ishraque-sarwar-siam-52971a2aa/", svg: `<svg class="social-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },

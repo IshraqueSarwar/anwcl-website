@@ -216,18 +216,118 @@
             }
         }
 
+        /* ============================================
+           MOBILE RESPONSIVE STYLES
+           ============================================ */
+
         @media (max-width: 768px) {
-            .project-image-container,
-            .team-image-container {
-                height: 300px;
+
+            body {
+                padding: 12px 10px;
             }
 
+            .container {
+                border-radius: 8px;
+            }
+
+            /* Hero / project image — shorter on mobile */
+            .project-image-container {
+                height: 220px;
+            }
+
+            /* Make logo smaller and tuck into corner */
+            .lab-logo {
+                width: 52px;
+                height: 52px;
+                top: 12px;
+                left: 12px;
+                padding: 6px;
+            }
+
+            /* Content area — less padding */
             .content-section {
-                padding: 30px 20px;
+                padding: 24px 18px 32px;
+            }
+
+            /* Status badge */
+            .pulse-green {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+
+            /* Title — scale down for narrow screens */
+            .project-main-title {
+                font-size: 1.35rem;
+                margin-bottom: 18px;
+                line-height: 1.4;
+            }
+
+            /* Body text */
+            .project-description {
+                font-size: 0.92rem;
+                line-height: 1.75;
+                margin-bottom: 30px;
+                text-align: left; /* justify can look bad on narrow screens */
+            }
+
+            /* Team photo — shorter */
+            .team-image-container {
+                height: 200px;
+                border-radius: 8px;
+                margin-bottom: 24px;
+            }
+
+            /* Section heading */
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+            }
+
+            /* Team grid — single column */
+            .team-grid {
+                gap: 14px;
+            }
+
+            .team-role-group {
+                padding: 14px 16px;
+            }
+
+            /* Disable sideways slide on tap (touch devices) */
+            .team-role-group:hover {
+                transform: none;
+            }
+
+            .role-header {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+
+            .member-name {
+                font-size: 0.88rem;
+                margin-bottom: 6px;
+            }
+
+            .member-note {
+                font-size: 0.78rem;
+                display: block;       /* stack note below name */
+                padding-left: 12px;
+                margin-top: 1px;
+                color: #718096;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 390px) {
+            .project-image-container {
+                height: 180px;
             }
 
             .project-main-title {
-                font-size: 1.5rem;
+                font-size: 1.15rem;
+            }
+
+            .content-section {
+                padding: 18px 14px 28px;
             }
         }
     </style>
@@ -240,11 +340,13 @@
                  alt="Lab Logo" 
                  class="lab-logo" 
                  id="labLogo"
+                 loading="lazy" 
                  onerror="this.style.display='none'">
             <img src="https://placehold.co/1400x400/667eea/ffffff?text=Project+Photo" 
                  alt="Project" 
                  class="project-image" 
                  id="projectImage"
+                 loading="lazy"
                  onerror="this.src='https://placehold.co/1400x400/667eea/ffffff?text=Image+Not+Found'">
         </div>
 
@@ -304,8 +406,8 @@
             {
                 id: "tubitak-1001-uav",
                 labLogo: "../photos/lablogo.png",
-                projectImage: "../photos/1001_1.jpg",
-                teamImage: "../photos/1001.jpg",
+                projectImage: "../photos/1001_1.webp",
+                teamImage: "../photos/1001.webp",
                 title: "Intelligent reflecting surface assisted Fluid Antenna Multiple Access with MIMO using artificial intelligence for 6G",
                 status: "Active Project",
                 description: "While 5G communications are being rolled out around the world, 6G communications have attracted much attention from both the industry and the academia. Compared with 5G, 6G will have a higher transmission rate, spectrum efficiency, greater connection capacity, shorter delay, wider coverage and stronger anti-interference capability, so as to meet the various network requirements for industries. Considering the aforementioned aspects, a mechanism will be developed integrating emerging technologies FAMA, IRS, MIMO with AI for 6G in this project.",

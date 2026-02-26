@@ -216,18 +216,118 @@
             }
         }
 
+        /* ============================================
+           MOBILE RESPONSIVE STYLES
+           ============================================ */
+
         @media (max-width: 768px) {
-            .project-image-container,
-            .team-image-container {
-                height: 300px;
+
+            body {
+                padding: 12px 10px;
             }
 
+            .container {
+                border-radius: 8px;
+            }
+
+            /* Hero / project image — shorter on mobile */
+            .project-image-container {
+                height: 220px;
+            }
+
+            /* Make logo smaller and tuck into corner */
+            .lab-logo {
+                width: 52px;
+                height: 52px;
+                top: 12px;
+                left: 12px;
+                padding: 6px;
+            }
+
+            /* Content area — less padding */
             .content-section {
-                padding: 30px 20px;
+                padding: 24px 18px 32px;
+            }
+
+            /* Status badge */
+            .pulse-green {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+
+            /* Title — scale down for narrow screens */
+            .project-main-title {
+                font-size: 1.35rem;
+                margin-bottom: 18px;
+                line-height: 1.4;
+            }
+
+            /* Body text */
+            .project-description {
+                font-size: 0.92rem;
+                line-height: 1.75;
+                margin-bottom: 30px;
+                text-align: left; /* justify can look bad on narrow screens */
+            }
+
+            /* Team photo — shorter */
+            .team-image-container {
+                height: 200px;
+                border-radius: 8px;
+                margin-bottom: 24px;
+            }
+
+            /* Section heading */
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+            }
+
+            /* Team grid — single column */
+            .team-grid {
+                gap: 14px;
+            }
+
+            .team-role-group {
+                padding: 14px 16px;
+            }
+
+            /* Disable sideways slide on tap (touch devices) */
+            .team-role-group:hover {
+                transform: none;
+            }
+
+            .role-header {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+
+            .member-name {
+                font-size: 0.88rem;
+                margin-bottom: 6px;
+            }
+
+            .member-note {
+                font-size: 0.78rem;
+                display: block;       /* stack note below name */
+                padding-left: 12px;
+                margin-top: 1px;
+                color: #718096;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 390px) {
+            .project-image-container {
+                height: 180px;
             }
 
             .project-main-title {
-                font-size: 1.5rem;
+                font-size: 1.15rem;
+            }
+
+            .content-section {
+                padding: 18px 14px 28px;
             }
         }
     </style>
@@ -304,8 +404,8 @@
             {
                 id: "tubitak-3501-uav",
                 labLogo: "../photos/lablogo.png",
-                projectImage: "../photos/3501_1.jpg",
-                teamImage: "../photos/3501.jpg",
+                projectImage: "../photos/3501_1.webp",
+                teamImage: "../photos/3501.webp",
                 fundingSource: "TÜBITAK 3501",
                 title: "Designing Cluster-based Cooperative Massive MIMO enabled Hybrid MAC Protocol for Reliable and Efficient UAVs Communication in 5G and beyond through Artificial Intelligence",
                 status: "Active Project",
