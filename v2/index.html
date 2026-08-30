@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ANWCL — AI and Next-Generation Wireless Communication Laboratory, Yıldız Technical University</title>
+<meta name="description" content="ANWCL is a research laboratory in the Department of Electronics and Communication Engineering at Yıldız Technical University, working on AI-enabled wireless communication for beyond-5G and 6G networks: UAV and FANET systems, MAC protocols, massive MIMO, intelligent reflecting surfaces and fluid antenna access.">
+
+<link rel="canonical" href="https://anwcl.yildiz.edu.tr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ANWCL — AI and Next-Generation Wireless Communication Laboratory">
+<meta property="og:description" content="AI-enabled wireless communication research for beyond-5G and 6G at Yıldız Technical University.">
+<meta property="og:image" content="photos/lablogo.png">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="photos/lablogo.ico" sizes="any">
+<link rel="apple-touch-icon" href="photos/lablogo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ====================================================== HEADER ========== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+
+    <a class="brand" href="./">
+      <img class="brand__mark" src="photos/lablogo.png" alt="">
+      <span>
+        <span class="brand__name" translate="no">ANWCL</span>
+        <span class="brand__sub">Yıldız Technical University</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="visually-hidden">Menu</span>
+      <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+        <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.6" fill="none"/>
+      </svg>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#people-section">People</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn--primary" href="#contact">Contact</a>
+      <a class="ytu-lockup" href="https://www.yildiz.edu.tr/" target="_blank" rel="noopener">YTÜ</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==================================================== HERO ============ -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero__grid">
+        <div>
+          <p class="label hero__eyebrow">Department of Electronics and Communication Engineering</p>
+          <h1>AI and Next-Generation <span class="accent">Wireless Communication</span> Laboratory</h1>
+        </div>
+
+        <div class="hero__side">
+          <p class="standfirst hero__lede">
+            A research laboratory working on AI-enabled wireless communication for
+            beyond-5G and 6G networks — from UAV and satellite links to the protocols
+            and antennas underneath them.
+          </p>
+
+          <dl class="idcard">
+            <dt>Director</dt>
+            <dd><a href="member.html?id=shahen-shah">Assoc. Prof. Dr. A. F. M. Shahen Shah</a></dd>
+            <dt>Institution</dt>
+            <dd>Yıldız Technical University, İstanbul</dd>
+            <dt>Focus</dt>
+            <dd>Beyond-5G and 6G · UAV networks · MAC protocols · MIMO</dd>
+          </dl>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#research">Explore the research</a>
+            <a class="btn btn--quiet" href="#people-section">Meet the group</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery. Slides come from GALLERY in data/lab.js.
+           Scrollable by touch, trackpad and wheel; buttons and dots are extras. -->
+      <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Laboratory photographs">
+        <div class="gallery__viewport">
+          <div class="gallery__track" id="gallery-track" tabindex="0"></div>
+        </div>
+        <div class="gallery__bar">
+          <p class="gallery__caption meta" id="gallery-caption"></p>
+          <div class="gallery__controls">
+            <div class="gallery__dots" id="gallery-dots"></div>
+            <button class="gallery__btn" type="button" data-gallery="prev">
+              <span class="visually-hidden">Previous photograph</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2 4 8l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="gallery__btn" type="button" data-gallery="next">
+              <span class="visually-hidden">Next photograph</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 2 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="facts" id="facts"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================== ABOUT =========== -->
+  <section class="band band--tinted" id="about">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="1" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>About the laboratory</h2>
+          <p class="meta" translate="no">Innovate. Integrate. Communicate.</p>
+        </div>
+      </header>
+
+      <div class="prose reveal">
+        <p>The AI and Next-Generation Wireless Communication Laboratory (ANWCL) is a research
+        laboratory within the Department of Electronics and Communication Engineering at
+        Yıldız Technical University, İstanbul, Türkiye.</p>
+
+        <p>ANWCL is dedicated to advancing AI-enabled wireless communication systems, with a
+        strong focus on beyond-5G and 6G technologies. The laboratory conducts both theoretical
+        and applied research, addressing real-world challenges in modern communication networks
+        and contributing to the development of intelligent, sustainable and resilient
+        communication infrastructures.</p>
+
+        <p>Through nationally and internationally funded projects, ANWCL contributes to
+        scientific innovation and technology transfer. Full-time B.Sc., M.Sc. and Ph.D. students
+        work together in a research environment built around publishing high-impact work,
+        developing novel algorithms and prototypes, and participating in international
+        conferences and collaborations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ DIRECTOR'S MESSAGE ====== -->
+  <section class="band band--plain" id="director">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="2" data-slots="9" aria-hidden="true"></span>
+        <h2>Director's message</h2>
+      </header>
+      <div class="director reveal" id="director-message"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================== RESEARCH ======== -->
+  <section class="band band--tinted" id="research">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="3" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>Research areas</h2>
+        </div>
+        <p class="standfirst">
+          Five threads run through the lab's funded work, from the protocol layer up to
+          complete airborne network architectures.
+        </p>
+      </header>
+      <div class="areas" id="research-areas"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================== PROJECTS ======== -->
+  <section class="band band--deep" id="projects">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="4" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>Projects</h2>
+          <p class="meta">Funded by TÜBİTAK and YTÜ-BAP</p>
+        </div>
+      </header>
+
+      <div class="featured" id="projects-featured"></div>
+
+      <h3 class="label" style="margin:var(--s-8) 0 var(--s-4)">Further projects</h3>
+      <div class="project-list" id="projects-list"></div>
+    </div>
+  </section>
+
+  <!-- ================================================ PUBLICATIONS ======== -->
+  <section class="band band--plain" id="publications">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="5" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>Publications</h2>
+          <p class="meta">
+            <a href="https://scholar.google.com/citations?user=TEi1jQ4AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              Full record on Google Scholar →</a>
+          </p>
+        </div>
+        <p class="standfirst">
+          A selection of recent work. <span class="todo">TODO · the complete list from
+          Publications.DOCX still needs adding to data/lab.js</span>
+        </p>
+      </header>
+      <div class="pub-list" id="publications-list"></div>
+    </div>
+  </section>
+
+  <!-- ====================================================== PEOPLE ======== -->
+  <section class="band band--tinted" id="people-section">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="6" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>People</h2>
+          <p class="meta">Select a name for the full profile</p>
+        </div>
+      </header>
+      <div id="people"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================== NEWS ======== -->
+  <section class="band band--plain" id="news">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="7" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>News and media</h2>
+          <p class="meta">
+            <a href="https://www.youtube.com/@ANWCL" target="_blank" rel="noopener">YouTube channel →</a>
+          </p>
+        </div>
+      </header>
+
+      <div class="news-grid" id="news-videos"></div>
+      <div class="notes" id="news-notes"></div>
+    </div>
+  </section>
+
+  <!-- ================================================= AFFILIATION ======== -->
+  <section class="band band--tinted" id="affiliation">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="8" data-slots="9" aria-hidden="true"></span>
+        <h2>Affiliation and funding</h2>
+      </header>
+      <div class="contact-grid reveal">
+        <div class="contact-block">
+          <h3>Institution</h3>
+          <p><a href="https://www.yildiz.edu.tr/" target="_blank" rel="noopener">Yıldız Technical University</a><br>
+             Department of Electronics and Communication Engineering</p>
+        </div>
+        <div class="contact-block">
+          <h3>Funding bodies</h3>
+          <p>TÜBİTAK — 1001, 3501, 1005 and 1002 programmes<br>
+             YTÜ-BAP — Scientific Research Projects</p>
+        </div>
+        <div class="contact-block">
+          <h3>Collaboration</h3>
+          <p>Students, researchers and industry partners are welcome to get in touch about
+             joint work and thesis projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== CONTACT ======== -->
+  <section class="band band--plain" id="contact">
+    <div class="container">
+      <header class="section-head">
+        <span class="frame-rule" data-slot="9" data-slots="9" aria-hidden="true"></span>
+        <div class="section-head__row">
+          <h2>Contact</h2>
+        </div>
+      </header>
+      <div class="contact-grid reveal" id="contact-details"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================================== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div>
+        <p class="site-footer__name" translate="no">ANWCL
+          <span>AI and Next-Generation Wireless Communication Laboratory ·
+                Department of Electronics and Communication Engineering ·
+                Yıldız Technical University, İstanbul, Türkiye</span>
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#people-section">People</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© <span data-year>2026</span> ANWCL. All rights reserved.</p>
+      <div class="socials" id="footer-socials"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/icons.js"></script>
+<script src="data/lab.js"></script>
+<script src="data/members.js"></script>
+<script src="js/site.js"></script>
+<script src="js/particles.js" defer></script>
+</body>
+</html>

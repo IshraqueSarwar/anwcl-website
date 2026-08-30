@@ -1,0 +1,630 @@
+/* ==========================================================================
+   ANWCL — Layout and components
+   Depends on tokens.css. Ordered: utilities → shell → sections → components.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Utilities
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: var(--s-4); top: -100px; z-index: 200;
+  background: var(--accent); color: #fff;
+  padding: var(--s-3) var(--s-5); border-radius: var(--radius);
+  text-decoration: none; font-weight: 500;
+}
+.skip-link:focus { top: var(--s-4); color: #fff; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.prose {
+  font-family: var(--font-serif);
+  font-size: var(--t-prose);
+  line-height: var(--lh-prose);
+  color: var(--ink-2);
+  max-width: var(--measure);
+}
+.prose p + p { margin-top: var(--s-4); }
+
+.standfirst {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: var(--measure-tight);
+}
+
+/* --------------------------------------------------------------------------
+   2. Signature: the slotted frame rule
+   One slot filled per section, advancing down the page — a MAC frame, and a
+   position indicator. Expanded by js/site.js; degrades to a hairline.
+   -------------------------------------------------------------------------- */
+
+.frame-rule {
+  display: flex;
+  gap: 5px;
+  height: 3px;
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: var(--s-5);
+  background: var(--line);          /* no-JS fallback: plain hairline */
+}
+.frame-rule.is-built { background: none; }
+.frame-rule i { flex: 1; background: var(--line); border-radius: 1px; }
+.frame-rule i.is-on { background: var(--accent); flex: 1.6; }
+
+.band--deep .frame-rule,
+.band--deep .frame-rule i { background: rgba(255, 255, 255, 0.22); }
+.band--deep .frame-rule.is-built { background: none; }
+.band--deep .frame-rule i.is-on { background: var(--accent-sky); }
+
+/* --------------------------------------------------------------------------
+   2b. Ambient network field
+   A single fixed canvas behind the entire page. Sections with an opaque
+   background hide it; transparent ones (.hero, .band--plain) reveal it.
+   -------------------------------------------------------------------------- */
+
+.network-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;   /* above the network field */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  display: flex; align-items: center; gap: var(--s-5);
+  height: var(--header-h);
+}
+
+.brand { display: flex; align-items: center; gap: var(--s-3); text-decoration: none; margin-right: auto; }
+.brand__mark {
+  width: 34px; height: 34px; flex: none;
+  /* The supplied PNG has an opaque #EAFBFF background and a baked-in
+     wordmark. We crop to the icon and hide the seam with a matching chip. */
+  object-fit: cover;
+  object-position: 50% 34%;
+  border-radius: var(--radius-sm);
+  background: #EAFBFF;
+}
+.brand__name {
+  font-weight: 600; font-size: 1.125rem; letter-spacing: 0.02em;
+  color: var(--ink); line-height: 1;
+}
+.brand__sub {
+  display: block; font-family: var(--font-mono); font-size: 0.6875rem;
+  letter-spacing: 0.06em; color: var(--ink-3); text-transform: uppercase;
+  margin-top: 3px; line-height: 1;
+}
+
+.nav { display: flex; align-items: center; gap: var(--s-1); }
+.nav a {
+  display: block; padding: var(--s-2) var(--s-3);
+  font-size: var(--t-small); font-weight: 500;
+  color: var(--ink-2); text-decoration: none; border-radius: var(--radius-sm);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.nav a:hover { background: var(--surface); color: var(--ink); }
+.nav a[aria-current="true"] { color: var(--accent); background: var(--accent-wash); }
+
+.header-actions { display: flex; align-items: center; gap: var(--s-4); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--t-small); font-weight: 500;
+  border-radius: var(--radius); text-decoration: none;
+  border: 1px solid transparent; cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-deep); color: #fff; }
+.btn--quiet { border-color: var(--line-strong); color: var(--ink); background: transparent; }
+.btn--quiet:hover { background: var(--surface); color: var(--ink); }
+
+.ytu-lockup {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding-left: var(--s-4); border-left: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: var(--t-label);
+  letter-spacing: 0.06em; color: var(--ink-3); text-transform: uppercase;
+  text-decoration: none;
+}
+.ytu-lockup:hover { color: var(--ink); }
+
+.nav-toggle { display: none; background: none; border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: var(--s-2) var(--s-3); cursor: pointer; }
+
+@media (max-width: 1080px) {
+  .ytu-lockup { display: none; }
+}
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav {
+    position: fixed; inset: var(--header-h) 0 auto 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+    padding: var(--s-3) var(--gutter) var(--s-5);
+    transform: translateY(-8px); opacity: 0; pointer-events: none;
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .nav[data-open="true"] { transform: none; opacity: 1; pointer-events: auto; }
+  .nav a { padding: var(--s-4) var(--s-2); border-bottom: 1px solid var(--line); border-radius: 0; }
+  .header-actions .btn--primary { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   4. Bands and section headers
+   -------------------------------------------------------------------------- */
+
+.band {
+  position: relative; z-index: 1;   /* every band sits above the network field */
+  padding-block: var(--band-y);
+  border-top: 1px solid var(--line);
+}
+/* Transparent, so the fixed canvas behind the page shows through. The page
+   background is white, so these read as white sections — with particles. */
+.band--plain   { background: transparent; }
+/* Opaque, so they occlude the canvas entirely — no particles in tinted bands. */
+.band--tinted  { background: var(--surface); }
+.band--deep    { background: var(--deep); color: rgba(255, 255, 255, 0.78); border-top-color: var(--deep); }
+.band--deep h2, .band--deep h3 { color: #fff; }
+.band--deep .label { color: rgba(255, 255, 255, 0.55); }
+.band--deep .meta  { color: rgba(255, 255, 255, 0.55); }
+.band--deep a { color: var(--accent-sky); }
+
+.section-head { margin-bottom: var(--s-7); }
+.section-head__row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--s-5); flex-wrap: wrap;
+}
+.section-head h2 { max-width: 22ch; }
+.section-head .standfirst { margin-top: var(--s-4); }
+
+/* --------------------------------------------------------------------------
+   5. Hero — identity row, then the gallery at full container width
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative; z-index: 1;      /* sits above the network field */
+  background: transparent;             /* lets the field show through */
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) var(--band-y);
+}
+
+.hero__grid {
+  display: grid; gap: clamp(var(--s-5), 3.5vw, var(--s-8));
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: end;
+}
+.hero__eyebrow { margin-bottom: var(--s-4); }
+.hero h1 {
+  font-size: var(--t-display);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+.hero h1 .accent { color: var(--accent); }
+.hero__lede { margin-bottom: var(--s-5); }
+
+/* Station-identification block: mono labels, sans values. */
+.idcard {
+  display: grid; grid-template-columns: max-content 1fr;
+  gap: var(--s-2) var(--s-5);
+  border-top: 1px solid var(--line); padding-top: var(--s-5);
+  margin-bottom: var(--s-5);
+}
+.idcard dt { font-family: var(--font-mono); font-size: var(--t-label);
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 2px; }
+.idcard dd { margin: 0; font-size: var(--t-small); color: var(--ink); }
+.idcard dd a { text-decoration: none; }
+.idcard dd a:hover { text-decoration: underline; }
+
+.hero__actions { display: flex; gap: var(--s-3); flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero h1 { max-width: none; }
+}
+
+/* --------------------------------------------------------------------------
+   5b. Gallery
+   Native horizontal scroll with snap points, so wheel, trackpad and touch all
+   work with no JavaScript. Buttons and dots are progressive enhancement.
+   Slides use object-fit: cover against a container WIDER than the source
+   photos, so the full width of every image survives and only a little height
+   is trimmed. Per-slide `focus` sets object-position.
+   -------------------------------------------------------------------------- */
+
+.gallery { margin-top: clamp(var(--s-6), 4vw, var(--s-8)); }
+
+.gallery__viewport {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.gallery__track {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.gallery__track::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: reduce) { .gallery__track { scroll-behavior: auto; } }
+
+/* Every slide is a fixed-ratio frame. The photo is contained inside it, so
+   nothing is ever cropped — portrait shots included. The gap either side is
+   filled by the same image, blown up, blurred and veiled, so a vertical photo
+   sits in a soft wash of its own colours instead of hard grey bars. */
+.gallery__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  position: relative;
+  aspect-ratio: var(--gallery-ratio);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.gallery__fill {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.18);
+  filter: blur(30px) saturate(0.85);
+  opacity: 0.55;
+}
+.gallery__fill::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(255, 255, 255, 0.30);
+}
+
+.gallery__slide img {
+  position: relative;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* Opt a slide out with fit: "cover" in data/lab.js when you want it to bleed. */
+.gallery__slide[data-fit="cover"] img { object-fit: cover; }
+.gallery__slide[data-fit="cover"] .gallery__fill { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery__fill { transition: opacity var(--dur) var(--ease); }
+}
+
+.gallery__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s-4); margin-top: var(--s-3); flex-wrap: wrap;
+}
+.gallery__caption { margin: 0; min-height: 1.4em; }
+.gallery__controls { display: flex; align-items: center; gap: var(--s-4); margin-left: auto; }
+
+/* Dots echo the slotted frame rule rather than being circles. */
+.gallery__dots { display: flex; gap: 5px; }
+.gallery__dot {
+  width: 22px; height: 3px; padding: 0; border: 0; border-radius: 1px;
+  background: var(--line-strong); cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.gallery__dot:hover { background: var(--ink-3); }
+.gallery__dot[aria-current="true"] { background: var(--accent); }
+
+.gallery__btn {
+  width: 38px; height: 38px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: var(--paper); color: var(--ink); cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.gallery__btn:hover { background: var(--surface); }
+.gallery__btn[disabled] { opacity: 0.4; cursor: default; }
+.gallery__controls .gallery__btn + .gallery__btn { margin-left: var(--s-2); }
+
+@media (max-width: 640px) {
+  .gallery__bar { gap: var(--s-3); }
+  .gallery__caption { order: 2; width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Counted facts — real numbers only, computed from the data files
+   -------------------------------------------------------------------------- */
+
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-5);
+  border-top: 1px solid var(--line); padding-top: var(--s-5); }
+.facts__n {
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem);
+  color: var(--ink); line-height: 1; letter-spacing: -0.03em;
+}
+.facts__l { display: block; margin-top: var(--s-2); }
+@media (max-width: 640px) { .facts { grid-template-columns: repeat(2, 1fr); gap: var(--s-5) var(--s-4); } }
+
+/* --------------------------------------------------------------------------
+   7. Research areas — definition list, not cards
+   -------------------------------------------------------------------------- */
+
+.areas { border-top: 1px solid var(--line); }
+.area {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--s-4) var(--s-7);
+  padding-block: var(--s-6);
+  border-bottom: 1px solid var(--line);
+}
+.area h3 { font-size: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem); }
+.area__body p { color: var(--ink-2); max-width: var(--measure); }
+.tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+.tag {
+  font-family: var(--font-mono); font-size: var(--t-label);
+  letter-spacing: 0.04em; color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 100px;
+  padding: 3px var(--s-3); background: var(--paper);
+}
+@media (max-width: 760px) { .area { grid-template-columns: 1fr; gap: var(--s-3); } }
+
+/* --------------------------------------------------------------------------
+   8. Projects
+   -------------------------------------------------------------------------- */
+
+.featured { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-6); }
+.featured__item {
+  display: flex; flex-direction: column;
+  background: var(--deep-2); border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: transform var(--dur) var(--ease);
+}
+.featured__item:hover { transform: translateY(-3px); }
+.featured__item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0b1738; }
+.featured__body { padding: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); flex: 1; }
+.featured__item h3 { font-size: var(--t-h3); }
+.featured__item p { font-size: var(--t-small); color: rgba(255,255,255,0.7); }
+.featured__more { margin-top: auto; font-family: var(--font-mono); font-size: var(--t-meta);
+  color: var(--accent-sky); letter-spacing: 0.04em; }
+
+.project-list { border-top: 1px solid var(--line); }
+.band--deep .project-list { border-top-color: rgba(255,255,255,0.14); }
+.project {
+  display: grid; grid-template-columns: 190px minmax(0, 1fr) auto;
+  gap: var(--s-4) var(--s-6); align-items: baseline;
+  padding-block: var(--s-5);
+  border-bottom: 1px solid var(--line);
+}
+.band--deep .project { border-bottom-color: rgba(255,255,255,0.14); }
+.project__funder { font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink); font-weight: 500; }
+.band--deep .project__funder { color: #fff; }
+.project__years { display: block; color: var(--ink-3); font-weight: 400; margin-top: 3px; }
+.project h3 { font-size: 1.0625rem; font-weight: 500; margin-bottom: var(--s-2); }
+.project p { font-size: var(--t-small); max-width: var(--measure); }
+.status { display: inline-flex; align-items: center; gap: var(--s-2);
+  font-family: var(--font-mono); font-size: var(--t-label); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--closed); }
+.status--ongoing::before { background: var(--ongoing); }
+@media (max-width: 860px) {
+  .featured { grid-template-columns: 1fr; }
+  .project { grid-template-columns: 1fr; gap: var(--s-2); }
+  .project__years { display: inline; margin-left: var(--s-3); }
+}
+
+/* --------------------------------------------------------------------------
+   9. Publications
+   -------------------------------------------------------------------------- */
+
+.pub-list { border-top: 1px solid var(--line); }
+.pub {
+  display: grid; grid-template-columns: 72px minmax(0, 1fr);
+  gap: var(--s-5); padding-block: var(--s-5);
+  border-bottom: 1px solid var(--line);
+}
+.pub__year { font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink-3); padding-top: 3px; }
+.pub__title { font-size: 1.0625rem; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: var(--s-2); }
+.pub__authors { font-size: var(--t-small); color: var(--ink-2); margin-bottom: var(--s-2); }
+.pub__authors .self { color: var(--ink); font-weight: 500; }
+.pub__venue { font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink-3); }
+.pub__venue a { color: var(--ink-3); text-decoration-color: var(--line-strong); }
+.pub__venue a:hover { color: var(--accent); }
+@media (max-width: 620px) {
+  .pub { grid-template-columns: 1fr; gap: var(--s-2); }
+}
+
+/* --------------------------------------------------------------------------
+   10. People
+   -------------------------------------------------------------------------- */
+
+.people-group + .people-group { margin-top: var(--s-7); }
+.people-group__head {
+  display: flex; align-items: baseline; gap: var(--s-4);
+  padding-bottom: var(--s-3); margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--line);
+}
+.people-group__count { font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink-3); }
+
+/* Compact roster cards — about 150px per column at full container width, so
+   they sit clearly below the leadership portraits in the visual hierarchy.
+   auto-fill reflows the column count on its own, no media queries needed. */
+.people-grid {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.person { text-decoration: none; color: inherit; display: block; }
+.person__portrait {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background: var(--surface); margin-bottom: var(--s-3);
+}
+.person__portrait img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  filter: grayscale(0.12);
+  transition: transform 300ms var(--ease), filter var(--dur) var(--ease);
+}
+.person:hover .person__portrait img { transform: scale(1.03); filter: grayscale(0); }
+.person__name { text-decoration: none; font-weight: 600; color: var(--ink); font-size: 1rem; line-height: 1.35; }
+.person__role { display: block; margin-top: 3px; }
+.person__links { display: flex; gap: var(--s-3); margin-top: var(--s-3); }
+.person__links a { color: var(--ink-3); display: inline-flex; }
+.person__links a:hover { color: var(--accent); }
+.person__links svg { width: 17px; height: 17px; fill: currentColor; }
+
+/* Leadership: two per row, with a portrait larger than a roster card (230px
+   against roughly 150px), so seniority reads at a glance. If you change the
+   roster's minmax() above, keep this comfortably ahead of it. */
+.people-grid--lead { grid-template-columns: repeat(2, 1fr); gap: var(--s-7); }
+.people-grid--lead .person {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+.people-grid--lead .person__portrait { margin-bottom: 0; }
+.people-grid--lead .person__name { font-size: 1.125rem; }
+.people-grid--lead .person__role { margin-top: var(--s-2); }
+.people-grid--lead .person__tagline {
+  font-size: var(--t-meta); color: var(--ink-2); margin-top: var(--s-3);
+  font-style: italic; line-height: 1.5;
+}
+.people-grid--lead .person__bio {
+  font-size: var(--t-small); color: var(--ink-2); margin-top: var(--s-3);
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+}
+.people-grid--lead .person__links { margin-top: var(--s-4); }
+
+@media (max-width: 900px) {
+  .people-grid--lead { grid-template-columns: 1fr; gap: var(--s-6); }
+  .people-grid--lead .person { grid-template-columns: 200px minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .people-grid { gap: var(--s-4); }
+  .people-grid--lead .person { grid-template-columns: 1fr; }
+  .people-grid--lead .person__portrait { max-width: 240px; }
+}
+
+/* --------------------------------------------------------------------------
+   11. Director's message
+   -------------------------------------------------------------------------- */
+
+.director { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: clamp(var(--s-6), 4vw, var(--s-8)); }
+.director__aside img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); background: var(--surface); }
+.director__name { margin-top: var(--s-4); font-weight: 600; color: var(--ink); }
+.director__more { margin-top: var(--s-4); }
+.director__body[data-collapsed="true"] .director__extra { display: none; }
+@media (max-width: 800px) { .director { grid-template-columns: 1fr; } .director__aside img { max-width: 240px; } }
+
+/* --------------------------------------------------------------------------
+   12. News
+   -------------------------------------------------------------------------- */
+
+.news-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-6); }
+.video { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--paper); }
+.video__frame { position: relative; padding-bottom: 56.25%; height: 0; background: var(--surface); }
+.video__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__body { padding: var(--s-4) var(--s-5) var(--s-5); }
+.video__body h3 { font-size: 1rem; font-weight: 500; margin-bottom: var(--s-2); }
+
+.notes { margin-top: var(--s-7); border-top: 1px solid var(--line); }
+.note { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: var(--s-4) var(--s-5);
+  padding-block: var(--s-5); border-bottom: 1px solid var(--line); align-items: baseline; }
+.note__date { font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink-3); }
+.note h3 { font-size: 1.0625rem; font-weight: 500; margin-bottom: var(--s-2); }
+.note p { font-size: var(--t-small); max-width: var(--measure); }
+@media (max-width: 760px) {
+  .news-grid { grid-template-columns: 1fr; }
+  .note { grid-template-columns: 1fr; gap: var(--s-2); }
+}
+
+/* --------------------------------------------------------------------------
+   13. Contact + footer
+   -------------------------------------------------------------------------- */
+
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); }
+.contact-block h3 { font-size: 1rem; margin-bottom: var(--s-3); }
+.contact-block p, .contact-block address { font-style: normal; font-size: var(--t-small); color: var(--ink-2); }
+.contact-block a { text-decoration: none; }
+.contact-block a:hover { text-decoration: underline; }
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; gap: var(--s-5); } }
+
+.socials { display: flex; gap: var(--s-3); }
+.socials a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border: 1px solid var(--line-strong);
+  border-radius: var(--radius); color: var(--ink-2);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.socials a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.socials svg { width: 18px; height: 18px; fill: currentColor; }
+
+.site-footer {
+  position: relative; z-index: 1;           /* opaque, so no particles here */
+  background: var(--deep); color: rgba(255,255,255,0.65);
+  padding-block: var(--s-7) var(--s-6);
+}
+.site-footer__top { display: flex; justify-content: space-between; gap: var(--s-6); flex-wrap: wrap;
+  padding-bottom: var(--s-5); border-bottom: 1px solid rgba(255,255,255,0.14); }
+.site-footer__name { color: #fff; font-weight: 600; font-size: 1.0625rem; }
+.site-footer__name span { display: block; font-weight: 400; font-size: var(--t-small);
+  color: rgba(255,255,255,0.65); margin-top: var(--s-2); max-width: 42ch; }
+.footer-nav { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+.footer-nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: var(--t-small); }
+.footer-nav a:hover { color: #fff; text-decoration: underline; }
+.site-footer__bottom { display: flex; justify-content: space-between; gap: var(--s-4);
+  flex-wrap: wrap; padding-top: var(--s-5); font-family: var(--font-mono); font-size: var(--t-meta); }
+
+/* --------------------------------------------------------------------------
+   14. Content that still needs supplying from the lab
+   Visible in the page so gaps get filled rather than forgotten.
+   Delete .todo rules once all placeholders are resolved.
+   -------------------------------------------------------------------------- */
+
+.todo {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: var(--t-label); letter-spacing: 0.04em;
+  background: #FFF4D6; color: #6B4E00; border: 1px dashed #C9A227;
+  padding: 1px var(--s-2); border-radius: var(--radius-sm);
+}
+.band--deep .todo { background: #3A2F00; color: #FFD966; border-color: #8A6D00; }
+
+/* --------------------------------------------------------------------------
+   15. Scroll reveal — one shared, restrained transition
+   -------------------------------------------------------------------------- */
+
+.reveal { opacity: 0; transform: translateY(6px); transition: opacity 400ms var(--ease), transform 400ms var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }

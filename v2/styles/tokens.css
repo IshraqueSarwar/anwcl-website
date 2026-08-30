@@ -1,0 +1,149 @@
+/* ==========================================================================
+   ANWCL — Design tokens
+   Single source of truth. Change values here, not in site.css.
+   ========================================================================== */
+
+:root {
+  /* --- Colour ------------------------------------------------------------
+     Every blue below is sampled from the lab logo (photos/lablogo.png). */
+  --ink:          #101519;  /* headings, primary text            18.4:1 on white */
+  --ink-2:        #3E4750;  /* body text                          9.3:1 */
+  --ink-3:        #6E7883;  /* metadata, captions                 4.5:1 (AA) */
+
+  --paper:        #FFFFFF;
+  --surface:      #F2F5F8;  /* cool tinted band, from logo bg #EAFBFF */
+  --surface-2:    #E7EDF3;  /* input wells, hover fills */
+  --deep:         #071233;  /* dark band background */
+  --deep-2:       #0E1E4A;  /* dark band raised surface */
+
+  --line:         #DCE3EA;  /* 1px hairlines */
+  --line-strong:  #B9C5D1;  /* dividers that need to read at a glance */
+
+  --accent:       #0E50CA;  /* logo royal — links, active states  6.96:1 */
+  --accent-deep:  #0B1098;  /* logo indigo — hover, headings */
+  --accent-sky:   #1B86EA;  /* logo sky — ON DARK BACKGROUNDS ONLY */
+  --accent-wash:  #E8EFFC;  /* tint for active nav / selected tag */
+
+  --ongoing:      #1F7A4D;  /* project status dot */
+  --closed:       #8A94A0;
+
+  /* --- Type --------------------------------------------------------------
+     IBM Plex: Sans for UI, Serif for long-form prose, Mono for metadata.
+     Full Turkish coverage (ı İ ğ Ğ ş Ş ç Ç ö ü). */
+  --font-sans:  "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --t-display:  clamp(2.125rem, 1.30rem + 3.45vw, 3.25rem);  /* 34 → 52 */
+  --t-h1:       clamp(1.8125rem, 1.32rem + 2.07vw, 2.5rem);  /* 29 → 40 */
+  --t-h2:       clamp(1.4375rem, 1.19rem + 1.03vw, 1.75rem); /* 23 → 28 */
+  --t-h3:       clamp(1.125rem, 1.07rem + 0.22vw, 1.25rem);  /* 18 → 20 */
+  --t-body:     1.0625rem;   /* 17 */
+  --t-prose:    1.125rem;    /* 18 — serif reading size */
+  --t-small:    0.9375rem;   /* 15 */
+  --t-meta:     0.84375rem;  /* 13.5 — mono */
+  --t-label:    0.75rem;     /* 12  — mono, uppercase */
+
+  --lh-tight:   1.15;
+  --lh-heading: 1.25;
+  --lh-body:    1.6;
+  --lh-prose:   1.7;
+
+  --measure:      68ch;   /* body copy */
+  --measure-tight: 58ch;  /* standfirst, intros */
+
+  /* --- Space (4px base) --------------------------------------------------- */
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;  --s-4: 1rem;
+  --s-5: 1.5rem;   --s-6: 2rem;     --s-7: 3rem;     --s-8: 4rem;
+  --s-9: 6rem;     --s-10: 8rem;
+
+  --band-y:  clamp(3.5rem, 2.4rem + 4.5vw, 6.5rem);  /* vertical section rhythm */
+  --gutter:  clamp(1.25rem, 0.6rem + 2.6vw, 2.5rem);
+  --container: 1200px;
+  --header-h: 72px;
+
+  /* --- Surface treatment -------------------------------------------------- */
+  /* Gallery frame is deliberately WIDER than a typical photo, so cover() trims
+     height rather than cutting people off the sides. */
+  --gallery-ratio: 16 / 9;
+
+  --radius:    6px;
+  --radius-sm: 3px;
+  --focus:     2px solid var(--accent);
+  --focus-offset: 3px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur:  180ms;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.011em;
+}
+h1 { font-size: var(--t-h1); }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); font-weight: 600; }
+
+p { margin: 0 0 var(--s-4); }
+p:last-child { margin-bottom: 0; }
+
+/* <figure> ships with a 40px inline margin and <dd> with a 40px indent.
+   Both would break the gallery and the identity card. */
+figure, blockquote, dl, dd, fieldset { margin: 0; }
+
+ul, ol { margin: 0; padding: 0; }
+li { list-style: none; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-deep); }
+
+button { font: inherit; color: inherit; }
+
+/* Consistent, visible keyboard focus everywhere. */
+:focus-visible {
+  outline: var(--focus);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Anchor navigation must clear the sticky header. */
+[id] { scroll-margin-top: calc(var(--header-h) + var(--s-5)); }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Brand names must not be machine-translated (the reference site renders
+   its own name "ASİL" as "ROYAL" under Chrome auto-translate). */
+[translate="no"] { }
